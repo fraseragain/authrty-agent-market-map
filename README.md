@@ -22,6 +22,21 @@ lives in [`cheqd/agent-toolkit`](https://github.com/cheqd/agent-toolkit)'s
 This repo is the wide, shallow view; that one is the narrow, deep view of a
 single layer.
 
+## Logos
+
+`fetch_logos.py` downloads a small icon per item from DuckDuckGo's favicon
+service (`icons.duckduckgo.com/ip3/<domain>.ico`, no key needed) into
+`assets/logos/<slug>.png`. Items with no obvious company domain, or where the
+icon lookup came back empty, fall back to a plain grey swatch in the chart.
+Authrty's own logo is copied in by hand rather than fetched. To add or change
+an item's logo: edit the `DOMAINS` map in `fetch_logos.py` (or drop a PNG
+straight into `assets/logos/<slug>.png`, where `<slug>` is the item's label
+lower-cased with everything but letters/digits turned into `-`), then rerun:
+
+```bash
+python3 fetch_logos.py
+```
+
 ## Edit it
 
 All the content is in the `LAYERS` list in `generate.py` — a list of layers,

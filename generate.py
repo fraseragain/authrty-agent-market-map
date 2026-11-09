@@ -13,8 +13,23 @@ others too (e.g. a frontier lab shipping its own harness and consumer agent).
 
 See README.md for scope, sourcing and rendering to PNG.
 """
+import os
+import re
 import sys
 import html
+
+LOGO_DIR = os.path.join(os.path.dirname(os.path.abspath(__file__)), "assets", "logos")
+
+
+def slug(label):
+    return re.sub(r"[^a-z0-9]+", "-", label.lower()).strip("-")
+
+
+def logo_path(label):
+    """Relative path to this item's logo file, if fetch_logos.py produced one."""
+    p = os.path.join(LOGO_DIR, f"{slug(label)}.png")
+    return f"assets/logos/{slug(label)}.png" if os.path.exists(p) else None
+
 
 # layer key -> accent colour
 COLOUR = {
@@ -180,8 +195,10 @@ h1{font-size:22px;margin:0 0 2px;}
 .segment:last-child{border-right:none;}
 .segment h3{font-size:12px;margin:0 0 8px;color:var(--sub);font-weight:600;text-transform:uppercase;letter-spacing:.02em;}
 .items{display:flex;flex-direction:column;gap:5px;}
-.item{font-size:12.5px;padding:3px 0;border-bottom:1px dashed var(--border);}
+.item{font-size:12.5px;padding:4px 0;border-bottom:1px dashed var(--border);display:flex;align-items:center;gap:7px;}
 .item:last-child{border-bottom:none;}
+.item img{width:16px;height:16px;border-radius:3px;flex:none;object-fit:contain;background:#fff;}
+.item .swatch{width:16px;height:16px;border-radius:3px;flex:none;background:var(--border);}
 footer{color:var(--sub);font-size:11.5px;margin-top:18px;max-width:900px;}
 """
 
@@ -205,7 +222,9 @@ def render():
         for s in l["segments"]:
             out.append(f"<div class='segment'><h3>{html.escape(s['name'])}</h3><div class='items'>")
             for it in s["items"]:
-                out.append(f"<div class='item'>{html.escape(it)}</div>")
+                src = logo_path(it)
+                mark = f"<img src='{html.escape(src)}' alt=''>" if src else "<span class='swatch'></span>"
+                out.append(f"<div class='item'>{mark}<span>{html.escape(it)}</span></div>")
             out.append("</div></div>")
         out.append("</div></div>")
     out.append(
