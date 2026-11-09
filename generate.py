@@ -348,6 +348,8 @@ body{margin:0;background:var(--bg);color:var(--ink);font:14px/1.45 -apple-system
 .topbar{display:flex;align-items:flex-start;justify-content:space-between;gap:16px;}
 .brand{display:flex;align-items:center;gap:7px;color:var(--sub);font-size:12px;white-space:nowrap;flex:none;padding-top:3px;}
 .brand img{width:18px;height:18px;border-radius:4px;object-fit:contain;background:#fff;}
+.brand a{display:flex;align-items:center;gap:7px;color:inherit;text-decoration:none;}
+.brand a:hover{color:var(--link);text-decoration:underline;}
 h1{font-size:22px;margin:0 0 2px;}
 .meta{color:var(--sub);font-size:12.5px;margin:0 0 22px;max-width:900px;}
 .crumb{font-size:12.5px;color:var(--sub);margin:0 0 10px;}
@@ -371,6 +373,7 @@ h1{font-size:22px;margin:0 0 2px;}
 .item img{width:16px;height:16px;border-radius:3px;flex:none;object-fit:contain;background:#fff;}
 .item .swatch{width:16px;height:16px;border-radius:3px;flex:none;background:var(--border);}
 footer{color:var(--sub);font-size:11.5px;margin-top:18px;max-width:900px;}
+footer a{color:var(--link);}
 """
 
 
@@ -381,9 +384,12 @@ def item_row(it, depth):
 
 
 def brand_html(depth):
-    """Authrty credit shown as page branding only — not a market-map entry."""
+    """Authrty credit shown as page branding only — not a market-map entry. Links out to the main site."""
     src = logo_path("Authrty", depth) or f"{'../' * depth}assets/logos/authrty.png"
-    return f"<div class='brand'><img src='{html.escape(src)}' alt=''><span>Map by Authrty</span></div>"
+    return (
+        "<div class='brand'><a href='https://authrty.ai' target='_blank' rel='noopener'>"
+        f"<img src='{html.escape(src)}' alt=''><span>Map by Authrty</span></a></div>"
+    )
 
 
 def render_index():
@@ -421,7 +427,8 @@ def render_index():
     out.append(
         "<footer>Sketch, not exhaustive. Protocol detail (A2A, AP2, MCP and the rest) is tracked at "
         "cheqd/agent-toolkit's capability map; this map's protocols row is a summary pointer to it, not a "
-        "replacement. Last assembled 2026-11-09.</footer>"
+        "replacement. Last assembled 2026-11-09. Built by "
+        "<a href='https://authrty.ai' target='_blank' rel='noopener'>Authrty</a>.</footer>"
     )
     out.append("</body></html>")
     return "\n".join(out)
