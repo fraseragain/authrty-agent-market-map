@@ -27,19 +27,30 @@ lives in [`cheqd/agent-toolkit`](https://github.com/cheqd/agent-toolkit)'s
 This repo is the wide, shallow view; that one is the narrow, deep view of a
 single layer.
 
+## Branding
+
+Authrty isn't a market-map entry — it's credited as the map's author in a
+small "Map by Authrty" mark in the top-right of every page, using
+`assets/logos/authrty.png` (copied in by hand, not fetched). If the map ever
+needs a different credit, or none, edit `brand_html()` in `generate.py`.
+
 ## Logos
 
-`fetch_logos.py` downloads a small icon per item from DuckDuckGo's favicon
-service (`icons.duckduckgo.com/ip3/<domain>.ico`, no key needed) into
-`assets/logos/<slug>.png`. Items with no obvious company domain, or where the
-icon lookup came back empty, fall back to a plain grey swatch in the chart.
-Authrty's own logo is copied in by hand rather than fetched. To add or change
-an item's logo: edit the `DOMAINS` map in `fetch_logos.py` (or drop a PNG
-straight into `assets/logos/<slug>.png`, where `<slug>` is the item's label
-lower-cased with everything but letters/digits turned into `-`), then rerun:
+`fetch_logos.py` downloads a small icon per item, no key needed. It tries
+DuckDuckGo's favicon service first (`icons.duckduckgo.com/ip3/<domain>.ico`);
+DuckDuckGo returns one of a few fixed placeholder glyphs rather than a 404
+when it has no real favicon for a domain, so the script checks the result
+against `GENERIC_HASHES` and, if it matches (or nothing came back), retries
+through Google's favicon service instead. Items with no obvious company
+behind them, or where both services came back empty, fall back to a plain
+grey swatch in the chart. To add or change an item's logo: edit the
+`DOMAINS` map in `fetch_logos.py` (or drop a PNG straight into
+`assets/logos/<slug>.png`, where `<slug>` is the item's label lower-cased
+with everything but letters/digits turned into `-`), then rerun:
 
 ```bash
-python3 fetch_logos.py
+python3 fetch_logos.py           # only fetches what's missing
+python3 fetch_logos.py --recheck # also re-validates files already on disk
 ```
 
 ## Edit it

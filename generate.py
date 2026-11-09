@@ -206,11 +206,10 @@ LAYERS = [
         "Who an agent is, what it may do, and what stops it going wrong",
         [
             seg("Agent identity & delegation", [
-                "Authrty", "KYA-OS (DIF)", "ERC-8004", "Baselayer", "Skyfire",
+                "KYA-OS (DIF)", "ERC-8004", "Baselayer", "Skyfire",
             ], breakdown=[
                 sub("Identity & KYA standards", ["KYA-OS (DIF)", "Baselayer", "Skyfire"]),
                 sub("On-chain agent identity", ["ERC-8004"]),
-                sub("Delegation & authority infra", ["Authrty", "cheqd (DID infra)"]),
             ]),
             seg("Guardrails & red-teaming", [
                 "Lakera", "CalypsoAI", "HiddenLayer", "Robust Intelligence (Cisco)",
@@ -228,11 +227,10 @@ LAYERS = [
                 sub("Model risk management", ["IBM watsonx.governance", "ValidMind"]),
             ]),
             seg("Identity & access infra reused for agents", [
-                "Okta (Cross App Access)", "Auth0", "WorkOS", "cheqd (DID infra)",
+                "Okta (Cross App Access)", "Auth0", "WorkOS",
             ], breakdown=[
                 sub("Enterprise IAM extending to agents", ["Okta (Cross App Access)", "Auth0", "Microsoft Entra Agent ID"]),
-                sub("Developer-first auth", ["WorkOS", "Clerk"]),
-                sub("Decentralized identity infra", ["cheqd (DID infra)", "Ory"]),
+                sub("Developer-first auth", ["WorkOS", "Clerk", "Ory"]),
             ]),
         ],
     ),
@@ -290,6 +288,9 @@ CSS = """
 }
 *{box-sizing:border-box;}
 body{margin:0;background:var(--bg);color:var(--ink);font:14px/1.45 -apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif;padding:28px 32px 40px;}
+.topbar{display:flex;align-items:flex-start;justify-content:space-between;gap:16px;}
+.brand{display:flex;align-items:center;gap:7px;color:var(--sub);font-size:12px;white-space:nowrap;flex:none;padding-top:3px;}
+.brand img{width:18px;height:18px;border-radius:4px;object-fit:contain;background:#fff;}
 h1{font-size:22px;margin:0 0 2px;}
 .meta{color:var(--sub);font-size:12.5px;margin:0 0 22px;max-width:900px;}
 .crumb{font-size:12.5px;color:var(--sub);margin:0 0 10px;}
@@ -322,9 +323,15 @@ def item_row(it, depth):
     return f"<div class='item'>{mark}<span>{html.escape(it)}</span></div>"
 
 
+def brand_html(depth):
+    """Authrty credit shown as page branding only — not a market-map entry."""
+    src = logo_path("Authrty", depth) or f"{'../' * depth}assets/logos/authrty.png"
+    return f"<div class='brand'><img src='{html.escape(src)}' alt=''><span>Map by Authrty</span></div>"
+
+
 def render_index():
     out = [f"<!doctype html><html><head><meta charset='utf-8'><title>{html.escape(TITLE)}</title><style>{CSS}</style></head><body>"]
-    out.append(f"<h1>{html.escape(TITLE)}</h1>")
+    out.append(f"<div class='topbar'><h1>{html.escape(TITLE)}</h1>{brand_html(0)}</div>")
     out.append(
         "<p class='meta'>A sketch of the AI agent market by layer, not a census: each segment lists a handful of "
         "illustrative players, not every company in it, and a company often spans more than one box. "
@@ -363,7 +370,7 @@ def render_breakdown(l, s):
     colour = COLOUR[l["key"]]
     out = [f"<!doctype html><html><head><meta charset='utf-8'><title>{html.escape(page_title)}</title><style>{CSS}</style></head><body>"]
     out.append(f"<p class='crumb'><a href='../index.html'>&larr; {html.escape(TITLE)}</a> / {html.escape(l['title'])}</p>")
-    out.append(f"<h1>{html.escape(s['name'])}</h1>")
+    out.append(f"<div class='topbar'><h1>{html.escape(s['name'])}</h1>{brand_html(1)}</div>")
     out.append(
         f"<p class='meta'>Part of <strong>{html.escape(l['title'])}</strong> — {html.escape(l['subtitle'])}. "
         "A sketch of this sub-market's own segments, same rules as the top-level map: illustrative, not exhaustive.</p>"

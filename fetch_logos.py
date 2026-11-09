@@ -1,18 +1,38 @@
 #!/usr/bin/env python3
-"""Fetch a logo per market-map item via DuckDuckGo's favicon service (no key needed).
+"""Fetch a logo per market-map item, no key needed.
 
-Reads the (item -> domain) map below, downloads
-https://icons.duckduckgo.com/ip3/<domain>.ico for each, converts it to PNG with
-macOS `sips`, and writes assets/logos/<slug>.png. Items with domain=None are
-skipped (no company behind them, or the logo is fetched another way, e.g.
+Reads the (item -> domain) map below. For each, tries
+https://icons.duckduckgo.com/ip3/<domain>.ico first, converts it to PNG with
+macOS `sips`, and writes assets/logos/<slug>.png. DuckDuckGo returns a generic
+placeholder glyph (a few fixed images) rather than a 404 when it has no real
+favicon for a domain -- GENERIC_HASHES lists their MD5s, so those are detected
+and rejected rather than saved as if they were a real logo. When DDG has
+nothing real, or the request fails outright, it falls back to Google's
+favicon service (https://www.google.com/s2/favicons). Items with domain=None
+are skipped (no company behind them, or the logo is fetched another way, e.g.
 Authrty's own file in assets/logos/authrty.png).
+
+Run with --recheck to also re-validate files already on disk (slower, but
+catches cases where an earlier run saved one of DDG's generic placeholders
+before GENERIC_HASHES knew about it).
 """
+import hashlib
 import os
 import re
 import subprocess
+import sys
 import urllib.request
 
 OUT = os.path.join(os.path.dirname(__file__), "assets", "logos")
+
+# MD5s of DuckDuckGo's own generic "no real favicon" placeholder images,
+# observed by fetching known-nonexistent domains and domains that otherwise
+# return the same bytes as an unrelated company (e.g. microsoft.com and
+# fintool.com both came back with hash b49de891...). Grows as new ones turn up.
+GENERIC_HASHES = {
+    "b49de8917046a69241832c8b94139499",
+    "911944405987195b41fc7c0e2c8ce826",
+}
 os.makedirs(OUT, exist_ok=True)
 
 # item label (as it appears in generate.py) -> domain to fetch from Clearbit
@@ -48,7 +68,7 @@ DOMAINS = {
     "Rogo (finance)": "rogo.ai",
     "EvenUp (legal)": "evenuplaw.com",
     "Sierra (travel/CX)": "sierra.ai",
-    "Cradle (hardware eng.)": None,
+    "Cradle (hardware eng.)": "cradle.bio",
     "Claude Agent SDK": "anthropic.com",
     "OpenAI Agents SDK": "openai.com",
     "LangGraph": "langchain.com",
@@ -210,6 +230,8 @@ DOMAINS = {
     "Google TPU": "cloud.google.com",
     "AMD": "amd.com",
     "L402": None,
+    "Gemini in Chrome (Google)": "google.com",
+    "Glean Assistant": "glean.com",
 }
 
 
@@ -218,47 +240,90 @@ def slug(label):
     return s
 
 
+def _fetch_ico_as_png(url, dest):
+    """Download an .ico URL and convert it to PNG at dest. Returns the MD5 of
+    dest's bytes, or None if nothing usable came back."""
+    tmp_ico = dest + ".tmp.ico"
+    try:
+        req = urllib.request.Request(url, headers={"User-Agent": "curl/8"})
+        with urllib.request.urlopen(req, timeout=10) as resp:
+            data = resp.read()
+        if not data or len(data) < 100:
+            return None
+        with open(tmp_ico, "wb") as f:
+            f.write(data)
+        r = subprocess.run(
+            ["sips", "-s", "format", "png", tmp_ico, "--out", dest],
+            capture_output=True, text=True,
+        )
+        if r.returncode != 0 or not os.path.exists(dest):
+            return None
+        return hashlib.md5(open(dest, "rb").read()).hexdigest()
+    except Exception:
+        return None
+    finally:
+        if os.path.exists(tmp_ico):
+            os.remove(tmp_ico)
+
+
+def _fetch_png_direct(url, dest):
+    """Download a URL that already serves a PNG (Google's favicon service).
+    Returns the MD5 of dest's bytes, or None."""
+    try:
+        req = urllib.request.Request(url, headers={"User-Agent": "curl/8"})
+        with urllib.request.urlopen(req, timeout=10) as resp:
+            data = resp.read()
+        if not data or len(data) < 100:
+            return None
+        with open(dest, "wb") as f:
+            f.write(data)
+        return hashlib.md5(data).hexdigest()
+    except Exception:
+        return None
+
+
+def fetch_one(label, domain, dest):
+    """Try DuckDuckGo first, reject its generic placeholder, fall back to
+    Google's favicon service. Returns 'ok', 'generic-only' or 'failed'."""
+    h = _fetch_ico_as_png(f"https://icons.duckduckgo.com/ip3/{domain}.ico", dest)
+    if h and h not in GENERIC_HASHES:
+        return "ok"
+    h2 = _fetch_png_direct(f"https://www.google.com/s2/favicons?domain={domain}&sz=128", dest)
+    if h2 and h2 not in GENERIC_HASHES:
+        return "ok"
+    if os.path.exists(dest):
+        os.remove(dest)
+    return "generic-only" if (h or h2) else "failed"
+
+
 def main():
-    missing, failed, skipped = [], [], []
+    recheck = "--recheck" in sys.argv
+    ok, generic, failed, skipped = 0, [], [], []
     for label, domain in DOMAINS.items():
         s = slug(label)
         dest = os.path.join(OUT, f"{s}.png")
         if domain is None:
             skipped.append(label)
             continue
-        if os.path.exists(dest) and os.path.getsize(dest) > 0:
+        if not recheck and os.path.exists(dest) and os.path.getsize(dest) > 0:
             continue
-        url = f"https://icons.duckduckgo.com/ip3/{domain}.ico"
-        tmp_ico = os.path.join(OUT, f"{s}.ico")
-        try:
-            req = urllib.request.Request(url, headers={"User-Agent": "curl/8"})
-            with urllib.request.urlopen(req, timeout=10) as resp:
-                data = resp.read()
-            if not data or len(data) < 100:
-                missing.append((label, domain))
-                continue
-            with open(tmp_ico, "wb") as f:
-                f.write(data)
-            r = subprocess.run(
-                ["sips", "-s", "format", "png", tmp_ico, "--out", dest],
-                capture_output=True, text=True,
-            )
-            os.remove(tmp_ico)
-            if r.returncode != 0 or not os.path.exists(dest):
-                failed.append((label, domain, r.stderr.strip() or "sips conversion failed"))
-        except Exception as e:
-            if os.path.exists(tmp_ico):
-                os.remove(tmp_ico)
-            failed.append((label, domain, str(e)))
-    print(f"Done. {len(DOMAINS) - len(skipped)} attempted, {len(skipped)} skipped (no domain).")
-    if missing:
-        print("No icon body returned for:")
-        for label, domain in missing:
+        result = fetch_one(label, domain, dest)
+        if result == "ok":
+            ok += 1
+        elif result == "generic-only":
+            generic.append((label, domain))
+        else:
+            failed.append((label, domain))
+    print(f"Done. {ok} fetched, {len(skipped)} skipped (no domain), "
+          f"{len(generic)} generic-only, {len(failed)} failed.")
+    if generic:
+        print("Only a generic placeholder came back for (no real favicon found):")
+        for label, domain in generic:
             print(f"  - {label} ({domain})")
     if failed:
-        print("Failed:")
-        for label, domain, err in failed:
-            print(f"  - {label} ({domain}): {err}")
+        print("Failed outright for:")
+        for label, domain in failed:
+            print(f"  - {label} ({domain})")
 
 
 if __name__ == "__main__":
