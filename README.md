@@ -1,5 +1,7 @@
 # AI agent market map
 
+Live at **[fraseragain.github.io/authrty-agent-market-map](https://fraseragain.github.io/authrty-agent-market-map/)**, built by [Authrty](https://authrty.ai).
+
 A small static site sketching the AI agent market as a whole: one overview
 page (`index.html`) laid out as a stack from what people buy and use down to
 the compute it runs on, and a drill-down page under `pages/` for every

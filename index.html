@@ -1,0 +1,263 @@
+<!doctype html><html><head><meta charset='utf-8'><title>AI agent market map</title><link rel='alternate' type='application/json' href='market-map.json' title='Structured data for this map, for agents and scripts'><style>
+:root{
+  --ink:#1b1f24; --sub:#5f6b7a; --bg:#ffffff; --panel:#f7f8fa; --border:#d8dde3; --link:#2f7fd1;
+}
+@media (prefers-color-scheme: dark){
+  :root{ --ink:#e8ecf1; --sub:#9aa7b4; --bg:#14171b; --panel:#1b1f24; --border:#2c3238; --link:#6fa8e8; }
+}
+*{box-sizing:border-box;}
+body{margin:0;background:var(--bg);color:var(--ink);font:14px/1.45 -apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif;padding:28px 32px 40px;}
+.topbar{display:flex;align-items:flex-start;justify-content:space-between;gap:16px;}
+.brand{display:flex;align-items:center;gap:7px;color:var(--sub);font-size:12px;white-space:nowrap;flex:none;padding-top:3px;}
+.brand img{width:18px;height:18px;border-radius:4px;object-fit:contain;background:#fff;}
+.brand a{display:flex;align-items:center;gap:7px;color:inherit;text-decoration:none;}
+.brand a:hover{color:var(--link);text-decoration:underline;}
+h1{font-size:22px;margin:0 0 2px;}
+.meta{color:var(--sub);font-size:12.5px;margin:0 0 22px;max-width:900px;}
+.crumb{font-size:12.5px;color:var(--sub);margin:0 0 10px;}
+.crumb a{color:var(--link);text-decoration:none;}
+.crumb a:hover{text-decoration:underline;}
+.layer{border:1px solid var(--border);border-radius:10px;margin-bottom:16px;overflow:hidden;}
+.layer-head{display:flex;align-items:baseline;gap:10px;padding:10px 16px;border-bottom:1px solid var(--border);}
+.layer-head .chip{width:9px;height:9px;border-radius:50%;flex:none;}
+.layer-head h2{font-size:14.5px;margin:0;}
+.layer-head .sub{color:var(--sub);font-size:12px;}
+.segments{display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:0;}
+.segment{padding:12px 14px;border-right:1px solid var(--border);background:var(--panel);}
+.segment:last-child{border-right:none;}
+.segment h3{font-size:12px;margin:0 0 8px;color:var(--sub);font-weight:600;text-transform:uppercase;letter-spacing:.02em;}
+.segment h3 a{color:inherit;text-decoration:none;}
+.segment h3 a:hover{color:var(--link);text-decoration:underline;}
+.segment h3 .arrow{color:var(--link);margin-left:3px;}
+.items{display:flex;flex-direction:column;gap:5px;}
+.item{font-size:12.5px;padding:4px 0;border-bottom:1px dashed var(--border);display:flex;align-items:center;gap:7px;}
+.item:last-child{border-bottom:none;}
+.item img{width:16px;height:16px;border-radius:3px;flex:none;object-fit:contain;background:#fff;}
+.item .swatch{width:16px;height:16px;border-radius:3px;flex:none;background:var(--border);}
+footer{color:var(--sub);font-size:11.5px;margin-top:18px;max-width:900px;}
+footer a{color:var(--link);}
+</style></head><body>
+<div class='topbar'><h1>AI agent market map</h1><div class='brand'><a href='https://authrty.ai' target='_blank' rel='noopener'><img src='assets/logos/authrty.png' alt=''><span>Map by Authrty</span></a></div></div>
+<p class='meta'>A sketch of the AI agent market by layer, not a census: each segment lists a handful of illustrative players, not every company in it, and a company often spans more than one box. Segment titles with an arrow link through to a breakdown of that sub-market. See README.md for scope and how to edit it.</p>
+<div class='layer'>
+<div class='layer-head'><span class='chip' style='background:#2f7fd1'></span><h2>Vertical &amp; horizontal agent applications</h2><span class='sub'>What end users and buyers actually use</span></div>
+<div class='segments'>
+<div class='segment'><h3><a href='pages/horizontal-general-purpose.html'>Horizontal / general-purpose<span class='arrow'>&nbsp;&rarr;</span></a></h3><div class='items'>
+<div class='item'><img src='assets/logos/chatgpt-openai.png' alt=''><span>ChatGPT (OpenAI)</span></div>
+<div class='item'><img src='assets/logos/claude-anthropic.png' alt=''><span>Claude (Anthropic)</span></div>
+<div class='item'><img src='assets/logos/gemini-google.png' alt=''><span>Gemini (Google)</span></div>
+<div class='item'><img src='assets/logos/copilot-microsoft.png' alt=''><span>Copilot (Microsoft)</span></div>
+<div class='item'><img src='assets/logos/perplexity.png' alt=''><span>Perplexity</span></div>
+</div></div>
+<div class='segment'><h3><a href='pages/browser-computer-use-agents.html'>Browser &amp; computer-use agents<span class='arrow'>&nbsp;&rarr;</span></a></h3><div class='items'>
+<div class='item'><img src='assets/logos/operator-openai.png' alt=''><span>Operator (OpenAI)</span></div>
+<div class='item'><img src='assets/logos/comet-perplexity.png' alt=''><span>Comet (Perplexity)</span></div>
+<div class='item'><img src='assets/logos/claude-computer-use.png' alt=''><span>Claude computer use</span></div>
+<div class='item'><img src='assets/logos/browserbase-browser-use.png' alt=''><span>Browserbase / Browser-use</span></div>
+<div class='item'><img src='assets/logos/genspark.png' alt=''><span>Genspark</span></div>
+</div></div>
+<div class='segment'><h3><a href='pages/coding-agents.html'>Coding agents<span class='arrow'>&nbsp;&rarr;</span></a></h3><div class='items'>
+<div class='item'><img src='assets/logos/claude-code.png' alt=''><span>Claude Code</span></div>
+<div class='item'><img src='assets/logos/cursor.png' alt=''><span>Cursor</span></div>
+<div class='item'><img src='assets/logos/github-copilot.png' alt=''><span>GitHub Copilot</span></div>
+<div class='item'><img src='assets/logos/devin-cognition.png' alt=''><span>Devin (Cognition)</span></div>
+<div class='item'><img src='assets/logos/windsurf.png' alt=''><span>Windsurf</span></div>
+<div class='item'><img src='assets/logos/replit-agent.png' alt=''><span>Replit Agent</span></div>
+</div></div>
+<div class='segment'><h3><a href='pages/customer-support-sales.html'>Customer support &amp; sales<span class='arrow'>&nbsp;&rarr;</span></a></h3><div class='items'>
+<div class='item'><img src='assets/logos/sierra.png' alt=''><span>Sierra</span></div>
+<div class='item'><img src='assets/logos/decagon.png' alt=''><span>Decagon</span></div>
+<div class='item'><img src='assets/logos/intercom-fin.png' alt=''><span>Intercom Fin</span></div>
+<div class='item'><img src='assets/logos/salesforce-agentforce.png' alt=''><span>Salesforce Agentforce</span></div>
+<div class='item'><img src='assets/logos/clay.png' alt=''><span>Clay</span></div>
+<div class='item'><img src='assets/logos/11x.png' alt=''><span>11x</span></div>
+</div></div>
+<div class='segment'><h3><a href='pages/enterprise-knowledge-research.html'>Enterprise knowledge / research<span class='arrow'>&nbsp;&rarr;</span></a></h3><div class='items'>
+<div class='item'><img src='assets/logos/glean.png' alt=''><span>Glean</span></div>
+<div class='item'><img src='assets/logos/hebbia.png' alt=''><span>Hebbia</span></div>
+<div class='item'><img src='assets/logos/elicit.png' alt=''><span>Elicit</span></div>
+<div class='item'><img src='assets/logos/you-com.png' alt=''><span>You.com</span></div>
+<div class='item'><img src='assets/logos/harvey-legal.png' alt=''><span>Harvey (legal)</span></div>
+</div></div>
+<div class='segment'><h3><a href='pages/marketing-content-agents.html'>Marketing &amp; content agents<span class='arrow'>&nbsp;&rarr;</span></a></h3><div class='items'>
+<div class='item'><img src='assets/logos/jasper.png' alt=''><span>Jasper</span></div>
+<div class='item'><img src='assets/logos/copy-ai.png' alt=''><span>Copy.ai</span></div>
+<div class='item'><img src='assets/logos/writer.png' alt=''><span>Writer</span></div>
+<div class='item'><img src='assets/logos/surfer-seo.png' alt=''><span>Surfer SEO</span></div>
+</div></div>
+<div class='segment'><h3><a href='pages/education-tutoring-agents.html'>Education &amp; tutoring agents<span class='arrow'>&nbsp;&rarr;</span></a></h3><div class='items'>
+<div class='item'><img src='assets/logos/khanmigo.png' alt=''><span>Khanmigo</span></div>
+<div class='item'><img src='assets/logos/speak.png' alt=''><span>Speak</span></div>
+<div class='item'><img src='assets/logos/duolingo-max.png' alt=''><span>Duolingo Max</span></div>
+</div></div>
+<div class='segment'><h3><a href='pages/embodied-physical-world-agents.html'>Embodied / physical-world agents<span class='arrow'>&nbsp;&rarr;</span></a></h3><div class='items'>
+<div class='item'><img src='assets/logos/figure.png' alt=''><span>Figure</span></div>
+<div class='item'><img src='assets/logos/physical-intelligence.png' alt=''><span>Physical Intelligence</span></div>
+<div class='item'><img src='assets/logos/skild-ai.png' alt=''><span>Skild AI</span></div>
+</div></div>
+<div class='segment'><h3><a href='pages/other-verticals.html'>Other verticals<span class='arrow'>&nbsp;&rarr;</span></a></h3><div class='items'>
+<div class='item'><img src='assets/logos/abridge-health.png' alt=''><span>Abridge (health)</span></div>
+<div class='item'><img src='assets/logos/rogo-finance.png' alt=''><span>Rogo (finance)</span></div>
+<div class='item'><img src='assets/logos/evenup-legal.png' alt=''><span>EvenUp (legal)</span></div>
+<div class='item'><img src='assets/logos/sierra-travel-cx.png' alt=''><span>Sierra (travel/CX)</span></div>
+<div class='item'><img src='assets/logos/cradle-hardware-eng.png' alt=''><span>Cradle (hardware eng.)</span></div>
+</div></div>
+</div></div>
+<div class='layer'>
+<div class='layer-head'><span class='chip' style='background:#2e9e6b'></span><h2>Agent platforms, orchestration &amp; harnesses</h2><span class='sub'>What builders use to assemble and run agents</span></div>
+<div class='segments'>
+<div class='segment'><h3><a href='pages/agent-sdks-frameworks.html'>Agent SDKs &amp; frameworks<span class='arrow'>&nbsp;&rarr;</span></a></h3><div class='items'>
+<div class='item'><img src='assets/logos/claude-agent-sdk.png' alt=''><span>Claude Agent SDK</span></div>
+<div class='item'><img src='assets/logos/openai-agents-sdk.png' alt=''><span>OpenAI Agents SDK</span></div>
+<div class='item'><img src='assets/logos/langgraph.png' alt=''><span>LangGraph</span></div>
+<div class='item'><img src='assets/logos/crewai.png' alt=''><span>CrewAI</span></div>
+<div class='item'><img src='assets/logos/google-adk.png' alt=''><span>Google ADK</span></div>
+<div class='item'><img src='assets/logos/autogen-ag2.png' alt=''><span>AutoGen / AG2</span></div>
+<div class='item'><img src='assets/logos/pydantic-ai.png' alt=''><span>Pydantic AI</span></div>
+</div></div>
+<div class='segment'><h3><a href='pages/no-low-code-agent-builders.html'>No/low-code agent builders<span class='arrow'>&nbsp;&rarr;</span></a></h3><div class='items'>
+<div class='item'><img src='assets/logos/dust.png' alt=''><span>Dust</span></div>
+<div class='item'><img src='assets/logos/lindy.png' alt=''><span>Lindy</span></div>
+<div class='item'><img src='assets/logos/relevance-ai.png' alt=''><span>Relevance AI</span></div>
+<div class='item'><img src='assets/logos/n8n.png' alt=''><span>n8n</span></div>
+<div class='item'><img src='assets/logos/zapier-agents.png' alt=''><span>Zapier Agents</span></div>
+<div class='item'><img src='assets/logos/vellum.png' alt=''><span>Vellum</span></div>
+</div></div>
+<div class='segment'><h3><a href='pages/multi-agent-enterprise-runtime.html'>Multi-agent &amp; enterprise runtime<span class='arrow'>&nbsp;&rarr;</span></a></h3><div class='items'>
+<div class='item'><img src='assets/logos/aws-bedrock-agentcore.png' alt=''><span>AWS Bedrock AgentCore</span></div>
+<div class='item'><img src='assets/logos/azure-ai-foundry-agent-service.png' alt=''><span>Azure AI Foundry Agent Service</span></div>
+<div class='item'><img src='assets/logos/vertex-ai-agent-builder.png' alt=''><span>Vertex AI Agent Builder</span></div>
+<div class='item'><img src='assets/logos/uipath-agentic-automation.png' alt=''><span>UiPath Agentic Automation</span></div>
+</div></div>
+<div class='segment'><h3><a href='pages/evaluation-observability.html'>Evaluation &amp; observability<span class='arrow'>&nbsp;&rarr;</span></a></h3><div class='items'>
+<div class='item'><img src='assets/logos/langsmith.png' alt=''><span>LangSmith</span></div>
+<div class='item'><img src='assets/logos/braintrust.png' alt=''><span>Braintrust</span></div>
+<div class='item'><img src='assets/logos/arize.png' alt=''><span>Arize</span></div>
+<div class='item'><img src='assets/logos/weights-biases-weave.png' alt=''><span>Weights &amp; Biases Weave</span></div>
+<div class='item'><img src='assets/logos/langfuse.png' alt=''><span>Langfuse</span></div>
+<div class='item'><img src='assets/logos/humanloop.png' alt=''><span>Humanloop</span></div>
+</div></div>
+<div class='segment'><h3><a href='pages/memory-retrieval-data.html'>Memory, retrieval &amp; data<span class='arrow'>&nbsp;&rarr;</span></a></h3><div class='items'>
+<div class='item'><img src='assets/logos/pinecone.png' alt=''><span>Pinecone</span></div>
+<div class='item'><img src='assets/logos/weaviate.png' alt=''><span>Weaviate</span></div>
+<div class='item'><img src='assets/logos/llamaindex.png' alt=''><span>LlamaIndex</span></div>
+<div class='item'><img src='assets/logos/mem0.png' alt=''><span>Mem0</span></div>
+<div class='item'><img src='assets/logos/letta.png' alt=''><span>Letta</span></div>
+</div></div>
+<div class='segment'><h3><a href='pages/model-gateways-routers.html'>Model gateways &amp; routers<span class='arrow'>&nbsp;&rarr;</span></a></h3><div class='items'>
+<div class='item'><img src='assets/logos/openrouter.png' alt=''><span>OpenRouter</span></div>
+<div class='item'><img src='assets/logos/portkey.png' alt=''><span>Portkey</span></div>
+<div class='item'><img src='assets/logos/litellm.png' alt=''><span>LiteLLM</span></div>
+<div class='item'><img src='assets/logos/martian.png' alt=''><span>Martian</span></div>
+</div></div>
+<div class='segment'><h3><a href='pages/agent-sandboxes-code-execution-infra.html'>Agent sandboxes &amp; code execution infra<span class='arrow'>&nbsp;&rarr;</span></a></h3><div class='items'>
+<div class='item'><img src='assets/logos/e2b.png' alt=''><span>E2B</span></div>
+<div class='item'><img src='assets/logos/modal.png' alt=''><span>Modal</span></div>
+<div class='item'><img src='assets/logos/daytona.png' alt=''><span>Daytona</span></div>
+</div></div>
+<div class='segment'><h3><a href='pages/usage-metering-billing-for-agents.html'>Usage metering &amp; billing for agents<span class='arrow'>&nbsp;&rarr;</span></a></h3><div class='items'>
+<div class='item'><img src='assets/logos/orb.png' alt=''><span>Orb</span></div>
+<div class='item'><img src='assets/logos/metronome.png' alt=''><span>Metronome</span></div>
+</div></div>
+</div></div>
+<div class='layer'>
+<div class='layer-head'><span class='chip' style='background:#8a56c2'></span><h2>Protocols &amp; interoperability</h2><span class='sub'>How agents talk to tools, each other and businesses — see cheqd/agent-toolkit&#x27;s capability map for the detailed breakdown</span></div>
+<div class='segments'>
+<div class='segment'><h3><a href='pages/tool-data-access.html'>Tool &amp; data access<span class='arrow'>&nbsp;&rarr;</span></a></h3><div class='items'>
+<div class='item'><img src='assets/logos/mcp-anthropic.png' alt=''><span>MCP (Anthropic)</span></div>
+<div class='item'><span class='swatch'></span><span>OpenAPI tool calling</span></div>
+</div></div>
+<div class='segment'><h3><a href='pages/agent-to-agent-discovery.html'>Agent-to-agent &amp; discovery<span class='arrow'>&nbsp;&rarr;</span></a></h3><div class='items'>
+<div class='item'><img src='assets/logos/a2a-linux-foundation.png' alt=''><span>A2A (Linux Foundation)</span></div>
+<div class='item'><img src='assets/logos/agntcy-cisco.png' alt=''><span>AGNTCY (Cisco)</span></div>
+<div class='item'><span class='swatch'></span><span>ANS</span></div>
+</div></div>
+<div class='segment'><h3><a href='pages/commerce-payments.html'>Commerce &amp; payments<span class='arrow'>&nbsp;&rarr;</span></a></h3><div class='items'>
+<div class='item'><img src='assets/logos/ap2-google.png' alt=''><span>AP2 (Google)</span></div>
+<div class='item'><img src='assets/logos/acp-openai.png' alt=''><span>ACP (OpenAI)</span></div>
+<div class='item'><img src='assets/logos/ucp-google.png' alt=''><span>UCP (Google)</span></div>
+<div class='item'><img src='assets/logos/x402.png' alt=''><span>x402</span></div>
+<div class='item'><img src='assets/logos/tap-visa.png' alt=''><span>TAP (Visa)</span></div>
+<div class='item'><img src='assets/logos/mpp-stripe-tempo.png' alt=''><span>MPP (Stripe/Tempo)</span></div>
+</div></div>
+</div></div>
+<div class='layer'>
+<div class='layer-head'><span class='chip' style='background:#b3261e'></span><h2>Identity, governance &amp; security</h2><span class='sub'>Who an agent is, what it may do, and what stops it going wrong</span></div>
+<div class='segments'>
+<div class='segment'><h3><a href='pages/agent-identity-delegation.html'>Agent identity &amp; delegation<span class='arrow'>&nbsp;&rarr;</span></a></h3><div class='items'>
+<div class='item'><img src='assets/logos/kya-os-dif.png' alt=''><span>KYA-OS (DIF)</span></div>
+<div class='item'><img src='assets/logos/erc-8004.png' alt=''><span>ERC-8004</span></div>
+<div class='item'><img src='assets/logos/baselayer.png' alt=''><span>Baselayer</span></div>
+<div class='item'><span class='swatch'></span><span>Skyfire</span></div>
+</div></div>
+<div class='segment'><h3><a href='pages/guardrails-red-teaming.html'>Guardrails &amp; red-teaming<span class='arrow'>&nbsp;&rarr;</span></a></h3><div class='items'>
+<div class='item'><img src='assets/logos/lakera.png' alt=''><span>Lakera</span></div>
+<div class='item'><span class='swatch'></span><span>CalypsoAI</span></div>
+<div class='item'><img src='assets/logos/hiddenlayer.png' alt=''><span>HiddenLayer</span></div>
+<div class='item'><img src='assets/logos/robust-intelligence-cisco.png' alt=''><span>Robust Intelligence (Cisco)</span></div>
+<div class='item'><img src='assets/logos/prompt-security.png' alt=''><span>Prompt Security</span></div>
+</div></div>
+<div class='segment'><h3><a href='pages/ai-governance-risk.html'>AI governance &amp; risk<span class='arrow'>&nbsp;&rarr;</span></a></h3><div class='items'>
+<div class='item'><img src='assets/logos/credo-ai.png' alt=''><span>Credo AI</span></div>
+<div class='item'><img src='assets/logos/holistic-ai.png' alt=''><span>Holistic AI</span></div>
+<div class='item'><img src='assets/logos/onetrust-ai-governance.png' alt=''><span>OneTrust AI Governance</span></div>
+<div class='item'><img src='assets/logos/ibm-watsonx-governance.png' alt=''><span>IBM watsonx.governance</span></div>
+</div></div>
+<div class='segment'><h3><a href='pages/identity-access-infra-reused-for-agents.html'>Identity &amp; access infra reused for agents<span class='arrow'>&nbsp;&rarr;</span></a></h3><div class='items'>
+<div class='item'><img src='assets/logos/okta-cross-app-access.png' alt=''><span>Okta (Cross App Access)</span></div>
+<div class='item'><img src='assets/logos/auth0.png' alt=''><span>Auth0</span></div>
+<div class='item'><img src='assets/logos/workos.png' alt=''><span>WorkOS</span></div>
+</div></div>
+<div class='segment'><h3><a href='pages/liability-insurance.html'>Liability &amp; insurance<span class='arrow'>&nbsp;&rarr;</span></a></h3><div class='items'>
+<div class='item'><img src='assets/logos/armilla-ai.png' alt=''><span>Armilla AI</span></div>
+<div class='item'><img src='assets/logos/munich-re-aisure.png' alt=''><span>Munich Re (aiSure)</span></div>
+<div class='item'><img src='assets/logos/chubb.png' alt=''><span>Chubb</span></div>
+</div></div>
+</div></div>
+<div class='layer'>
+<div class='layer-head'><span class='chip' style='background:#6b7a8f'></span><h2>Foundation models &amp; infrastructure</h2><span class='sub'>What everything above is built on</span></div>
+<div class='segments'>
+<div class='segment'><h3><a href='pages/frontier-labs.html'>Frontier labs<span class='arrow'>&nbsp;&rarr;</span></a></h3><div class='items'>
+<div class='item'><img src='assets/logos/anthropic.png' alt=''><span>Anthropic</span></div>
+<div class='item'><img src='assets/logos/openai.png' alt=''><span>OpenAI</span></div>
+<div class='item'><img src='assets/logos/google-deepmind.png' alt=''><span>Google DeepMind</span></div>
+<div class='item'><img src='assets/logos/meta.png' alt=''><span>Meta</span></div>
+<div class='item'><img src='assets/logos/xai.png' alt=''><span>xAI</span></div>
+<div class='item'><img src='assets/logos/mistral.png' alt=''><span>Mistral</span></div>
+</div></div>
+<div class='segment'><h3><a href='pages/open-weight-models.html'>Open-weight models<span class='arrow'>&nbsp;&rarr;</span></a></h3><div class='items'>
+<div class='item'><img src='assets/logos/llama-meta.png' alt=''><span>Llama (Meta)</span></div>
+<div class='item'><img src='assets/logos/qwen-alibaba.png' alt=''><span>Qwen (Alibaba)</span></div>
+<div class='item'><img src='assets/logos/deepseek.png' alt=''><span>DeepSeek</span></div>
+<div class='item'><img src='assets/logos/mistral.png' alt=''><span>Mistral</span></div>
+</div></div>
+<div class='segment'><h3><a href='pages/model-hosting-inference.html'>Model hosting &amp; inference<span class='arrow'>&nbsp;&rarr;</span></a></h3><div class='items'>
+<div class='item'><img src='assets/logos/together-ai.png' alt=''><span>Together AI</span></div>
+<div class='item'><img src='assets/logos/fireworks-ai.png' alt=''><span>Fireworks AI</span></div>
+<div class='item'><img src='assets/logos/groq.png' alt=''><span>Groq</span></div>
+<div class='item'><img src='assets/logos/amazon-bedrock.png' alt=''><span>Amazon Bedrock</span></div>
+<div class='item'><img src='assets/logos/azure-ai-foundry.png' alt=''><span>Azure AI Foundry</span></div>
+<div class='item'><img src='assets/logos/vertex-ai.png' alt=''><span>Vertex AI</span></div>
+</div></div>
+<div class='segment'><h3><a href='pages/compute-training-infra.html'>Compute &amp; training infra<span class='arrow'>&nbsp;&rarr;</span></a></h3><div class='items'>
+<div class='item'><img src='assets/logos/nvidia.png' alt=''><span>Nvidia</span></div>
+<div class='item'><img src='assets/logos/aws.png' alt=''><span>AWS</span></div>
+<div class='item'><img src='assets/logos/microsoft-azure.png' alt=''><span>Microsoft Azure</span></div>
+<div class='item'><img src='assets/logos/google-cloud.png' alt=''><span>Google Cloud</span></div>
+<div class='item'><img src='assets/logos/coreweave.png' alt=''><span>CoreWeave</span></div>
+</div></div>
+<div class='segment'><h3><a href='pages/data-labeling-rlhf.html'>Data, labeling &amp; RLHF<span class='arrow'>&nbsp;&rarr;</span></a></h3><div class='items'>
+<div class='item'><img src='assets/logos/scale-ai.png' alt=''><span>Scale AI</span></div>
+<div class='item'><img src='assets/logos/surge-ai.png' alt=''><span>Surge AI</span></div>
+<div class='item'><img src='assets/logos/labelbox.png' alt=''><span>Labelbox</span></div>
+<div class='item'><img src='assets/logos/invisible-technologies.png' alt=''><span>Invisible Technologies</span></div>
+</div></div>
+<div class='segment'><h3><a href='pages/voice-multimodal-model-infra.html'>Voice &amp; multimodal model infra<span class='arrow'>&nbsp;&rarr;</span></a></h3><div class='items'>
+<div class='item'><img src='assets/logos/elevenlabs.png' alt=''><span>ElevenLabs</span></div>
+<div class='item'><img src='assets/logos/deepgram.png' alt=''><span>Deepgram</span></div>
+<div class='item'><img src='assets/logos/cartesia.png' alt=''><span>Cartesia</span></div>
+<div class='item'><img src='assets/logos/assemblyai.png' alt=''><span>AssemblyAI</span></div>
+</div></div>
+</div></div>
+<footer>Sketch, not exhaustive. Protocol detail (A2A, AP2, MCP and the rest) is tracked at cheqd/agent-toolkit's capability map; this map's protocols row is a summary pointer to it, not a replacement. Last assembled 2026-11-09. Built by <a href='https://authrty.ai' target='_blank' rel='noopener'>Authrty</a>.</footer>
+</body></html>
