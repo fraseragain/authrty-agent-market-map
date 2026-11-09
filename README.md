@@ -1,7 +1,12 @@
 # AI agent market map
 
-A one-page sketch of the AI agent market as a whole, laid out as a stack from
-what people buy and use down to the compute it runs on:
+A small static site sketching the AI agent market as a whole: one overview
+page (`index.html`) laid out as a stack from what people buy and use down to
+the compute it runs on, and a drill-down page under `pages/` for every
+segment that has one — click a segment's title (the ones with an arrow) to
+see that sub-market broken into its own categories.
+
+The stack, top to bottom:
 
 1. **Vertical & horizontal agent applications** — the products people and businesses use.
 2. **Agent platforms, orchestration & harnesses** — what builders use to assemble and run agents.
@@ -40,12 +45,19 @@ python3 fetch_logos.py
 ## Edit it
 
 All the content is in the `LAYERS` list in `generate.py` — a list of layers,
-each with a title, subtitle and a few named segments, each segment a short
-list of example players. Edit that list, then regenerate.
+each with a title, subtitle and a few named segments. A segment is a short
+top-level list of example players plus an optional `breakdown`: a list of
+named sub-categories, each with its own short item list, rendered as that
+segment's drill-down page. A segment with no `breakdown` just has no arrow
+on the overview page — add one any time by passing `breakdown=[sub(...), ...]`
+to `seg(...)`. Edit `LAYERS`, then regenerate:
 
 ```bash
-python3 generate.py market-map.html
+python3 generate.py .        # writes ./index.html and ./pages/<segment>.html
 ```
+
+Open `index.html` in a browser — the drill-down links are relative, so it
+works straight off disk, no server needed.
 
 ## Render to PNG
 
@@ -53,13 +65,13 @@ Any headless Chromium works. For example, with Chrome on macOS:
 
 ```bash
 "/Applications/Google Chrome.app/Contents/MacOS/Google Chrome" --headless \
-  --hide-scrollbars --force-device-scale-factor=2 --window-size=1500,1555 \
-  --screenshot=market-map.png file://$PWD/market-map.html
+  --hide-scrollbars --force-device-scale-factor=2 --window-size=1500,1565 \
+  --screenshot=market-map.png file://$PWD/index.html
 ```
 
-Adjust `--window-size` height if you add or remove segments or layers — it
-should roughly match the page's content height so the screenshot isn't
-padded with blank space.
+The same works on any `pages/<segment>.html` file for a one-off image of a
+single drill-down page. Adjust `--window-size` to roughly match the page's
+content height so the screenshot isn't padded with blank space.
 
 ## Limits
 
