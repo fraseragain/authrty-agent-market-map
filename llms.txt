@@ -1,0 +1,12 @@
+# AI agent market map
+
+> A sketch of the AI agent market by layer, top (what people buy and use) down to the compute underneath it: applications, agent platforms and harnesses, protocols, identity/governance/security, and foundation models and infrastructure. Illustrative, not exhaustive -- a navigation aid, not a competitor database or a ranking.
+
+Read [market-map.json](market-map.json) for the whole map as structured data: every layer, segment and example player, plus each segment's drill-down breakdown where one exists. That file is the source of truth for agents; the HTML pages are a rendering of the same data for people.
+
+- [index.html](index.html) -- the overview page (human-readable rendering of market-map.json)
+- [market-map.json](market-map.json) -- the same content as structured data
+- [README.md](README.md) -- how this map is built, scope and limits, how to edit it
+- `pages/<segment>.html` -- one drill-down page per segment that has a breakdown
+
+Protocol-level detail (A2A, AP2, MCP, x402 and the rest) is out of scope here by design and tracked instead at https://github.com/cheqd/agent-toolkit/tree/main/docs/research/tools/capability-map.

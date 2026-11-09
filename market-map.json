@@ -1,0 +1,2203 @@
+{
+  "title": "AI agent market map",
+  "description": "A sketch of the AI agent market by layer, top (what people buy and use) to bottom (the compute underneath it). Each segment lists a handful of illustrative players, not every company in it -- this is a navigation aid, not a competitor database or a ranking. A company often appears in, or belongs in, more than one box.",
+  "schema_notes": "layers[].segments[].items are the top-level examples shown on index.html. layers[].segments[].breakdown, where present, is the same segment split into its own named sub-categories (its drill-down page, linked by `page`); breakdown[].items follow the same {name, logo} shape as the top-level items. `logo` is a relative path from this file's own directory to a PNG, or null if no logo was found.",
+  "source": "https://github.com/cheqd/agent-toolkit (protocol-layer detail) + this repo (everything else)",
+  "layers": [
+    {
+      "key": "apps",
+      "title": "Vertical & horizontal agent applications",
+      "subtitle": "What end users and buyers actually use",
+      "segments": [
+        {
+          "name": "Horizontal / general-purpose",
+          "page": "pages/horizontal-general-purpose.html",
+          "items": [
+            {
+              "name": "ChatGPT (OpenAI)",
+              "logo": "assets/logos/chatgpt-openai.png"
+            },
+            {
+              "name": "Claude (Anthropic)",
+              "logo": "assets/logos/claude-anthropic.png"
+            },
+            {
+              "name": "Gemini (Google)",
+              "logo": "assets/logos/gemini-google.png"
+            },
+            {
+              "name": "Copilot (Microsoft)",
+              "logo": "assets/logos/copilot-microsoft.png"
+            },
+            {
+              "name": "Perplexity",
+              "logo": "assets/logos/perplexity.png"
+            }
+          ],
+          "breakdown": [
+            {
+              "name": "Consumer chat assistants",
+              "items": [
+                {
+                  "name": "ChatGPT (OpenAI)",
+                  "logo": "assets/logos/chatgpt-openai.png"
+                },
+                {
+                  "name": "Claude (Anthropic)",
+                  "logo": "assets/logos/claude-anthropic.png"
+                },
+                {
+                  "name": "Gemini (Google)",
+                  "logo": "assets/logos/gemini-google.png"
+                },
+                {
+                  "name": "Meta AI",
+                  "logo": "assets/logos/meta-ai.png"
+                },
+                {
+                  "name": "Grok",
+                  "logo": "assets/logos/grok.png"
+                }
+              ]
+            },
+            {
+              "name": "Enterprise / work assistants",
+              "items": [
+                {
+                  "name": "Microsoft Copilot",
+                  "logo": "assets/logos/microsoft-copilot.png"
+                },
+                {
+                  "name": "Glean Assistant",
+                  "logo": "assets/logos/glean-assistant.png"
+                },
+                {
+                  "name": "Gemini for Workspace",
+                  "logo": "assets/logos/gemini-for-workspace.png"
+                }
+              ]
+            },
+            {
+              "name": "Search-native assistants",
+              "items": [
+                {
+                  "name": "Perplexity",
+                  "logo": "assets/logos/perplexity.png"
+                },
+                {
+                  "name": "You.com",
+                  "logo": "assets/logos/you-com.png"
+                },
+                {
+                  "name": "Arc Search (The Browser Company)",
+                  "logo": "assets/logos/arc-search-the-browser-company.png"
+                }
+              ]
+            },
+            {
+              "name": "Model access, bring your own UI",
+              "items": [
+                {
+                  "name": "Anthropic API",
+                  "logo": "assets/logos/anthropic-api.png"
+                },
+                {
+                  "name": "OpenAI API",
+                  "logo": "assets/logos/openai-api.png"
+                },
+                {
+                  "name": "Google AI Studio",
+                  "logo": "assets/logos/google-ai-studio.png"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "Browser & computer-use agents",
+          "page": "pages/browser-computer-use-agents.html",
+          "items": [
+            {
+              "name": "Operator (OpenAI)",
+              "logo": "assets/logos/operator-openai.png"
+            },
+            {
+              "name": "Comet (Perplexity)",
+              "logo": "assets/logos/comet-perplexity.png"
+            },
+            {
+              "name": "Claude computer use",
+              "logo": "assets/logos/claude-computer-use.png"
+            },
+            {
+              "name": "Browserbase / Browser-use",
+              "logo": "assets/logos/browserbase-browser-use.png"
+            },
+            {
+              "name": "Genspark",
+              "logo": "assets/logos/genspark.png"
+            }
+          ],
+          "breakdown": [
+            {
+              "name": "Browser-native agents",
+              "items": [
+                {
+                  "name": "Operator (OpenAI)",
+                  "logo": "assets/logos/operator-openai.png"
+                },
+                {
+                  "name": "Comet (Perplexity)",
+                  "logo": "assets/logos/comet-perplexity.png"
+                },
+                {
+                  "name": "Gemini in Chrome (Google)",
+                  "logo": "assets/logos/gemini-in-chrome-google.png"
+                }
+              ]
+            },
+            {
+              "name": "Desktop / OS computer-use",
+              "items": [
+                {
+                  "name": "Claude computer use",
+                  "logo": "assets/logos/claude-computer-use.png"
+                },
+                {
+                  "name": "Adept (Amazon)",
+                  "logo": "assets/logos/adept-amazon.png"
+                }
+              ]
+            },
+            {
+              "name": "Browser automation infra for builders",
+              "items": [
+                {
+                  "name": "Browserbase",
+                  "logo": "assets/logos/browserbase.png"
+                },
+                {
+                  "name": "Browser Use",
+                  "logo": "assets/logos/browser-use.png"
+                },
+                {
+                  "name": "Skyvern",
+                  "logo": "assets/logos/skyvern.png"
+                },
+                {
+                  "name": "Multion",
+                  "logo": "assets/logos/multion.png"
+                }
+              ]
+            },
+            {
+              "name": "New agentic browsers",
+              "items": [
+                {
+                  "name": "Genspark",
+                  "logo": "assets/logos/genspark.png"
+                },
+                {
+                  "name": "Dia (The Browser Company)",
+                  "logo": "assets/logos/dia-the-browser-company.png"
+                },
+                {
+                  "name": "Arc",
+                  "logo": "assets/logos/arc.png"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "Coding agents",
+          "page": "pages/coding-agents.html",
+          "items": [
+            {
+              "name": "Claude Code",
+              "logo": "assets/logos/claude-code.png"
+            },
+            {
+              "name": "Cursor",
+              "logo": "assets/logos/cursor.png"
+            },
+            {
+              "name": "GitHub Copilot",
+              "logo": "assets/logos/github-copilot.png"
+            },
+            {
+              "name": "Devin (Cognition)",
+              "logo": "assets/logos/devin-cognition.png"
+            },
+            {
+              "name": "Windsurf",
+              "logo": "assets/logos/windsurf.png"
+            },
+            {
+              "name": "Replit Agent",
+              "logo": "assets/logos/replit-agent.png"
+            }
+          ],
+          "breakdown": [
+            {
+              "name": "IDE-embedded",
+              "items": [
+                {
+                  "name": "Cursor",
+                  "logo": "assets/logos/cursor.png"
+                },
+                {
+                  "name": "Windsurf",
+                  "logo": "assets/logos/windsurf.png"
+                },
+                {
+                  "name": "GitHub Copilot",
+                  "logo": "assets/logos/github-copilot.png"
+                },
+                {
+                  "name": "Cody (Sourcegraph)",
+                  "logo": "assets/logos/cody-sourcegraph.png"
+                }
+              ]
+            },
+            {
+              "name": "CLI / terminal agents",
+              "items": [
+                {
+                  "name": "Claude Code",
+                  "logo": "assets/logos/claude-code.png"
+                },
+                {
+                  "name": "OpenAI Codex CLI",
+                  "logo": "assets/logos/openai-codex-cli.png"
+                },
+                {
+                  "name": "Aider",
+                  "logo": null
+                },
+                {
+                  "name": "Amazon Q Developer CLI",
+                  "logo": "assets/logos/amazon-q-developer-cli.png"
+                }
+              ]
+            },
+            {
+              "name": "Autonomous SWE agents",
+              "items": [
+                {
+                  "name": "Devin (Cognition)",
+                  "logo": "assets/logos/devin-cognition.png"
+                },
+                {
+                  "name": "Replit Agent",
+                  "logo": "assets/logos/replit-agent.png"
+                },
+                {
+                  "name": "Factory AI",
+                  "logo": "assets/logos/factory-ai.png"
+                }
+              ]
+            },
+            {
+              "name": "Code review & QA agents",
+              "items": [
+                {
+                  "name": "Greptile",
+                  "logo": "assets/logos/greptile.png"
+                },
+                {
+                  "name": "CodeRabbit",
+                  "logo": "assets/logos/coderabbit.png"
+                },
+                {
+                  "name": "Graphite Diamond",
+                  "logo": "assets/logos/graphite-diamond.png"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "Customer support & sales",
+          "page": "pages/customer-support-sales.html",
+          "items": [
+            {
+              "name": "Sierra",
+              "logo": "assets/logos/sierra.png"
+            },
+            {
+              "name": "Decagon",
+              "logo": "assets/logos/decagon.png"
+            },
+            {
+              "name": "Intercom Fin",
+              "logo": "assets/logos/intercom-fin.png"
+            },
+            {
+              "name": "Salesforce Agentforce",
+              "logo": "assets/logos/salesforce-agentforce.png"
+            },
+            {
+              "name": "Clay",
+              "logo": "assets/logos/clay.png"
+            },
+            {
+              "name": "11x",
+              "logo": "assets/logos/11x.png"
+            }
+          ],
+          "breakdown": [
+            {
+              "name": "Support / CX agents",
+              "items": [
+                {
+                  "name": "Sierra",
+                  "logo": "assets/logos/sierra.png"
+                },
+                {
+                  "name": "Decagon",
+                  "logo": "assets/logos/decagon.png"
+                },
+                {
+                  "name": "Intercom Fin",
+                  "logo": "assets/logos/intercom-fin.png"
+                },
+                {
+                  "name": "Ada",
+                  "logo": "assets/logos/ada.png"
+                }
+              ]
+            },
+            {
+              "name": "Sales SDR & outbound agents",
+              "items": [
+                {
+                  "name": "11x",
+                  "logo": "assets/logos/11x.png"
+                },
+                {
+                  "name": "Artisan",
+                  "logo": "assets/logos/artisan.png"
+                },
+                {
+                  "name": "Clay",
+                  "logo": "assets/logos/clay.png"
+                }
+              ]
+            },
+            {
+              "name": "Revenue / CRM-native agents",
+              "items": [
+                {
+                  "name": "Salesforce Agentforce",
+                  "logo": "assets/logos/salesforce-agentforce.png"
+                },
+                {
+                  "name": "HubSpot Breeze",
+                  "logo": "assets/logos/hubspot-breeze.png"
+                }
+              ]
+            },
+            {
+              "name": "Voice agents",
+              "items": [
+                {
+                  "name": "Bland AI",
+                  "logo": "assets/logos/bland-ai.png"
+                },
+                {
+                  "name": "Vapi",
+                  "logo": "assets/logos/vapi.png"
+                },
+                {
+                  "name": "Retell AI",
+                  "logo": "assets/logos/retell-ai.png"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "Enterprise knowledge / research",
+          "page": "pages/enterprise-knowledge-research.html",
+          "items": [
+            {
+              "name": "Glean",
+              "logo": "assets/logos/glean.png"
+            },
+            {
+              "name": "Hebbia",
+              "logo": "assets/logos/hebbia.png"
+            },
+            {
+              "name": "Elicit",
+              "logo": "assets/logos/elicit.png"
+            },
+            {
+              "name": "You.com",
+              "logo": "assets/logos/you-com.png"
+            },
+            {
+              "name": "Harvey (legal)",
+              "logo": "assets/logos/harvey-legal.png"
+            }
+          ],
+          "breakdown": [
+            {
+              "name": "Enterprise search & RAG",
+              "items": [
+                {
+                  "name": "Glean",
+                  "logo": "assets/logos/glean.png"
+                },
+                {
+                  "name": "Hebbia",
+                  "logo": "assets/logos/hebbia.png"
+                },
+                {
+                  "name": "You.com for Business",
+                  "logo": "assets/logos/you-com-for-business.png"
+                }
+              ]
+            },
+            {
+              "name": "Research assistants",
+              "items": [
+                {
+                  "name": "Elicit",
+                  "logo": "assets/logos/elicit.png"
+                },
+                {
+                  "name": "Consensus",
+                  "logo": "assets/logos/consensus.png"
+                },
+                {
+                  "name": "Perplexity Enterprise",
+                  "logo": "assets/logos/perplexity-enterprise.png"
+                }
+              ]
+            },
+            {
+              "name": "Analyst / BI copilots",
+              "items": [
+                {
+                  "name": "Rogo",
+                  "logo": "assets/logos/rogo.png"
+                },
+                {
+                  "name": "AlphaSense",
+                  "logo": "assets/logos/alphasense.png"
+                }
+              ]
+            },
+            {
+              "name": "Legal research",
+              "items": [
+                {
+                  "name": "Harvey (legal)",
+                  "logo": "assets/logos/harvey-legal.png"
+                },
+                {
+                  "name": "CoCounsel (Thomson Reuters)",
+                  "logo": "assets/logos/cocounsel-thomson-reuters.png"
+                },
+                {
+                  "name": "Robin AI",
+                  "logo": "assets/logos/robin-ai.png"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "Marketing & content agents",
+          "page": "pages/marketing-content-agents.html",
+          "items": [
+            {
+              "name": "Jasper",
+              "logo": "assets/logos/jasper.png"
+            },
+            {
+              "name": "Copy.ai",
+              "logo": "assets/logos/copy-ai.png"
+            },
+            {
+              "name": "Writer",
+              "logo": "assets/logos/writer.png"
+            },
+            {
+              "name": "Surfer SEO",
+              "logo": "assets/logos/surfer-seo.png"
+            }
+          ],
+          "breakdown": [
+            {
+              "name": "Content generation",
+              "items": [
+                {
+                  "name": "Jasper",
+                  "logo": "assets/logos/jasper.png"
+                },
+                {
+                  "name": "Copy.ai",
+                  "logo": "assets/logos/copy-ai.png"
+                },
+                {
+                  "name": "Writer",
+                  "logo": "assets/logos/writer.png"
+                }
+              ]
+            },
+            {
+              "name": "SEO & content ops",
+              "items": [
+                {
+                  "name": "Surfer SEO",
+                  "logo": "assets/logos/surfer-seo.png"
+                },
+                {
+                  "name": "Clearscope",
+                  "logo": "assets/logos/clearscope.png"
+                }
+              ]
+            },
+            {
+              "name": "Social & ad creative agents",
+              "items": [
+                {
+                  "name": "AdCreative.ai",
+                  "logo": "assets/logos/adcreative-ai.png"
+                },
+                {
+                  "name": "Omneky",
+                  "logo": "assets/logos/omneky.png"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "Education & tutoring agents",
+          "page": "pages/education-tutoring-agents.html",
+          "items": [
+            {
+              "name": "Khanmigo",
+              "logo": "assets/logos/khanmigo.png"
+            },
+            {
+              "name": "Speak",
+              "logo": "assets/logos/speak.png"
+            },
+            {
+              "name": "Duolingo Max",
+              "logo": "assets/logos/duolingo-max.png"
+            }
+          ],
+          "breakdown": [
+            {
+              "name": "Tutoring assistants",
+              "items": [
+                {
+                  "name": "Khanmigo",
+                  "logo": "assets/logos/khanmigo.png"
+                }
+              ]
+            },
+            {
+              "name": "Language learning agents",
+              "items": [
+                {
+                  "name": "Speak",
+                  "logo": "assets/logos/speak.png"
+                },
+                {
+                  "name": "Duolingo Max",
+                  "logo": "assets/logos/duolingo-max.png"
+                }
+              ]
+            },
+            {
+              "name": "Corporate learning agents",
+              "items": [
+                {
+                  "name": "Sana Labs",
+                  "logo": "assets/logos/sana-labs.png"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "Embodied / physical-world agents",
+          "page": "pages/embodied-physical-world-agents.html",
+          "items": [
+            {
+              "name": "Figure",
+              "logo": "assets/logos/figure.png"
+            },
+            {
+              "name": "Physical Intelligence",
+              "logo": "assets/logos/physical-intelligence.png"
+            },
+            {
+              "name": "Skild AI",
+              "logo": "assets/logos/skild-ai.png"
+            }
+          ],
+          "breakdown": [
+            {
+              "name": "Humanoid robots",
+              "items": [
+                {
+                  "name": "Figure",
+                  "logo": "assets/logos/figure.png"
+                },
+                {
+                  "name": "1X Technologies",
+                  "logo": "assets/logos/1x-technologies.png"
+                },
+                {
+                  "name": "Apptronik",
+                  "logo": "assets/logos/apptronik.png"
+                }
+              ]
+            },
+            {
+              "name": "Robot foundation models",
+              "items": [
+                {
+                  "name": "Physical Intelligence",
+                  "logo": "assets/logos/physical-intelligence.png"
+                },
+                {
+                  "name": "Skild AI",
+                  "logo": "assets/logos/skild-ai.png"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "Other verticals",
+          "page": "pages/other-verticals.html",
+          "items": [
+            {
+              "name": "Abridge (health)",
+              "logo": "assets/logos/abridge-health.png"
+            },
+            {
+              "name": "Rogo (finance)",
+              "logo": "assets/logos/rogo-finance.png"
+            },
+            {
+              "name": "EvenUp (legal)",
+              "logo": "assets/logos/evenup-legal.png"
+            },
+            {
+              "name": "Sierra (travel/CX)",
+              "logo": "assets/logos/sierra-travel-cx.png"
+            },
+            {
+              "name": "Cradle (hardware eng.)",
+              "logo": "assets/logos/cradle-hardware-eng.png"
+            }
+          ],
+          "breakdown": [
+            {
+              "name": "Healthcare",
+              "items": [
+                {
+                  "name": "Abridge (health)",
+                  "logo": "assets/logos/abridge-health.png"
+                },
+                {
+                  "name": "Ambience Healthcare",
+                  "logo": "assets/logos/ambience-healthcare.png"
+                },
+                {
+                  "name": "Nabla",
+                  "logo": "assets/logos/nabla.png"
+                }
+              ]
+            },
+            {
+              "name": "Finance & accounting",
+              "items": [
+                {
+                  "name": "Rogo (finance)",
+                  "logo": "assets/logos/rogo-finance.png"
+                },
+                {
+                  "name": "Fintool",
+                  "logo": "assets/logos/fintool.png"
+                },
+                {
+                  "name": "Basis",
+                  "logo": "assets/logos/basis.png"
+                }
+              ]
+            },
+            {
+              "name": "Legal",
+              "items": [
+                {
+                  "name": "EvenUp (legal)",
+                  "logo": "assets/logos/evenup-legal.png"
+                },
+                {
+                  "name": "Harvey (legal)",
+                  "logo": "assets/logos/harvey-legal.png"
+                },
+                {
+                  "name": "Eve (litigation)",
+                  "logo": "assets/logos/eve-litigation.png"
+                }
+              ]
+            },
+            {
+              "name": "Life sciences / biotech",
+              "items": [
+                {
+                  "name": "Cradle (hardware eng.)",
+                  "logo": "assets/logos/cradle-hardware-eng.png"
+                },
+                {
+                  "name": "Latch Bio",
+                  "logo": "assets/logos/latch-bio.png"
+                }
+              ]
+            },
+            {
+              "name": "Recruiting & HR",
+              "items": [
+                {
+                  "name": "Mercor",
+                  "logo": "assets/logos/mercor.png"
+                },
+                {
+                  "name": "Fetcher",
+                  "logo": "assets/logos/fetcher.png"
+                },
+                {
+                  "name": "Eightfold",
+                  "logo": "assets/logos/eightfold.png"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "key": "platforms",
+      "title": "Agent platforms, orchestration & harnesses",
+      "subtitle": "What builders use to assemble and run agents",
+      "segments": [
+        {
+          "name": "Agent SDKs & frameworks",
+          "page": "pages/agent-sdks-frameworks.html",
+          "items": [
+            {
+              "name": "Claude Agent SDK",
+              "logo": "assets/logos/claude-agent-sdk.png"
+            },
+            {
+              "name": "OpenAI Agents SDK",
+              "logo": "assets/logos/openai-agents-sdk.png"
+            },
+            {
+              "name": "LangGraph",
+              "logo": "assets/logos/langgraph.png"
+            },
+            {
+              "name": "CrewAI",
+              "logo": "assets/logos/crewai.png"
+            },
+            {
+              "name": "Google ADK",
+              "logo": "assets/logos/google-adk.png"
+            },
+            {
+              "name": "AutoGen / AG2",
+              "logo": "assets/logos/autogen-ag2.png"
+            },
+            {
+              "name": "Pydantic AI",
+              "logo": "assets/logos/pydantic-ai.png"
+            }
+          ],
+          "breakdown": [
+            {
+              "name": "First-party lab SDKs",
+              "items": [
+                {
+                  "name": "Claude Agent SDK",
+                  "logo": "assets/logos/claude-agent-sdk.png"
+                },
+                {
+                  "name": "OpenAI Agents SDK",
+                  "logo": "assets/logos/openai-agents-sdk.png"
+                },
+                {
+                  "name": "Google ADK",
+                  "logo": "assets/logos/google-adk.png"
+                }
+              ]
+            },
+            {
+              "name": "Open-source multi-agent frameworks",
+              "items": [
+                {
+                  "name": "LangGraph",
+                  "logo": "assets/logos/langgraph.png"
+                },
+                {
+                  "name": "CrewAI",
+                  "logo": "assets/logos/crewai.png"
+                },
+                {
+                  "name": "AutoGen / AG2",
+                  "logo": "assets/logos/autogen-ag2.png"
+                },
+                {
+                  "name": "Microsoft Semantic Kernel",
+                  "logo": "assets/logos/microsoft-semantic-kernel.png"
+                }
+              ]
+            },
+            {
+              "name": "Typed / validation-first",
+              "items": [
+                {
+                  "name": "Pydantic AI",
+                  "logo": "assets/logos/pydantic-ai.png"
+                },
+                {
+                  "name": "Instructor",
+                  "logo": "assets/logos/instructor.png"
+                }
+              ]
+            },
+            {
+              "name": "Retrieval-origin frameworks",
+              "items": [
+                {
+                  "name": "LlamaIndex Workflows",
+                  "logo": "assets/logos/llamaindex-workflows.png"
+                },
+                {
+                  "name": "Haystack (deepset)",
+                  "logo": "assets/logos/haystack-deepset.png"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "No/low-code agent builders",
+          "page": "pages/no-low-code-agent-builders.html",
+          "items": [
+            {
+              "name": "Dust",
+              "logo": "assets/logos/dust.png"
+            },
+            {
+              "name": "Lindy",
+              "logo": "assets/logos/lindy.png"
+            },
+            {
+              "name": "Relevance AI",
+              "logo": "assets/logos/relevance-ai.png"
+            },
+            {
+              "name": "n8n",
+              "logo": "assets/logos/n8n.png"
+            },
+            {
+              "name": "Zapier Agents",
+              "logo": "assets/logos/zapier-agents.png"
+            },
+            {
+              "name": "Vellum",
+              "logo": "assets/logos/vellum.png"
+            }
+          ],
+          "breakdown": [
+            {
+              "name": "General agent builders",
+              "items": [
+                {
+                  "name": "Dust",
+                  "logo": "assets/logos/dust.png"
+                },
+                {
+                  "name": "Lindy",
+                  "logo": "assets/logos/lindy.png"
+                },
+                {
+                  "name": "Relevance AI",
+                  "logo": "assets/logos/relevance-ai.png"
+                }
+              ]
+            },
+            {
+              "name": "Workflow automation with agent steps",
+              "items": [
+                {
+                  "name": "n8n",
+                  "logo": "assets/logos/n8n.png"
+                },
+                {
+                  "name": "Zapier Agents",
+                  "logo": "assets/logos/zapier-agents.png"
+                },
+                {
+                  "name": "Make",
+                  "logo": "assets/logos/make.png"
+                }
+              ]
+            },
+            {
+              "name": "Enterprise low-code",
+              "items": [
+                {
+                  "name": "Microsoft Copilot Studio",
+                  "logo": "assets/logos/microsoft-copilot-studio.png"
+                },
+                {
+                  "name": "Vellum",
+                  "logo": "assets/logos/vellum.png"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "Multi-agent & enterprise runtime",
+          "page": "pages/multi-agent-enterprise-runtime.html",
+          "items": [
+            {
+              "name": "AWS Bedrock AgentCore",
+              "logo": "assets/logos/aws-bedrock-agentcore.png"
+            },
+            {
+              "name": "Azure AI Foundry Agent Service",
+              "logo": "assets/logos/azure-ai-foundry-agent-service.png"
+            },
+            {
+              "name": "Vertex AI Agent Builder",
+              "logo": "assets/logos/vertex-ai-agent-builder.png"
+            },
+            {
+              "name": "UiPath Agentic Automation",
+              "logo": "assets/logos/uipath-agentic-automation.png"
+            }
+          ],
+          "breakdown": [
+            {
+              "name": "Hyperscaler agent runtimes",
+              "items": [
+                {
+                  "name": "AWS Bedrock AgentCore",
+                  "logo": "assets/logos/aws-bedrock-agentcore.png"
+                },
+                {
+                  "name": "Azure AI Foundry Agent Service",
+                  "logo": "assets/logos/azure-ai-foundry-agent-service.png"
+                },
+                {
+                  "name": "Vertex AI Agent Builder",
+                  "logo": "assets/logos/vertex-ai-agent-builder.png"
+                }
+              ]
+            },
+            {
+              "name": "Enterprise automation platforms",
+              "items": [
+                {
+                  "name": "UiPath Agentic Automation",
+                  "logo": "assets/logos/uipath-agentic-automation.png"
+                },
+                {
+                  "name": "Automation Anywhere",
+                  "logo": "assets/logos/automation-anywhere.png"
+                },
+                {
+                  "name": "Workday Illuminate",
+                  "logo": "assets/logos/workday-illuminate.png"
+                }
+              ]
+            },
+            {
+              "name": "Agent orchestration infra",
+              "items": [
+                {
+                  "name": "Temporal",
+                  "logo": "assets/logos/temporal.png"
+                },
+                {
+                  "name": "Restate",
+                  "logo": "assets/logos/restate.png"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "Evaluation & observability",
+          "page": "pages/evaluation-observability.html",
+          "items": [
+            {
+              "name": "LangSmith",
+              "logo": "assets/logos/langsmith.png"
+            },
+            {
+              "name": "Braintrust",
+              "logo": "assets/logos/braintrust.png"
+            },
+            {
+              "name": "Arize",
+              "logo": "assets/logos/arize.png"
+            },
+            {
+              "name": "Weights & Biases Weave",
+              "logo": "assets/logos/weights-biases-weave.png"
+            },
+            {
+              "name": "Langfuse",
+              "logo": "assets/logos/langfuse.png"
+            },
+            {
+              "name": "Humanloop",
+              "logo": "assets/logos/humanloop.png"
+            }
+          ],
+          "breakdown": [
+            {
+              "name": "Agent / LLM observability",
+              "items": [
+                {
+                  "name": "LangSmith",
+                  "logo": "assets/logos/langsmith.png"
+                },
+                {
+                  "name": "Langfuse",
+                  "logo": "assets/logos/langfuse.png"
+                },
+                {
+                  "name": "Arize",
+                  "logo": "assets/logos/arize.png"
+                },
+                {
+                  "name": "Helicone",
+                  "logo": "assets/logos/helicone.png"
+                }
+              ]
+            },
+            {
+              "name": "Eval platforms",
+              "items": [
+                {
+                  "name": "Braintrust",
+                  "logo": "assets/logos/braintrust.png"
+                },
+                {
+                  "name": "Humanloop",
+                  "logo": "assets/logos/humanloop.png"
+                },
+                {
+                  "name": "Weights & Biases Weave",
+                  "logo": "assets/logos/weights-biases-weave.png"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "Memory, retrieval & data",
+          "page": "pages/memory-retrieval-data.html",
+          "items": [
+            {
+              "name": "Pinecone",
+              "logo": "assets/logos/pinecone.png"
+            },
+            {
+              "name": "Weaviate",
+              "logo": "assets/logos/weaviate.png"
+            },
+            {
+              "name": "LlamaIndex",
+              "logo": "assets/logos/llamaindex.png"
+            },
+            {
+              "name": "Mem0",
+              "logo": "assets/logos/mem0.png"
+            },
+            {
+              "name": "Letta",
+              "logo": "assets/logos/letta.png"
+            }
+          ],
+          "breakdown": [
+            {
+              "name": "Vector databases",
+              "items": [
+                {
+                  "name": "Pinecone",
+                  "logo": "assets/logos/pinecone.png"
+                },
+                {
+                  "name": "Weaviate",
+                  "logo": "assets/logos/weaviate.png"
+                },
+                {
+                  "name": "Qdrant",
+                  "logo": "assets/logos/qdrant.png"
+                },
+                {
+                  "name": "Chroma",
+                  "logo": "assets/logos/chroma.png"
+                }
+              ]
+            },
+            {
+              "name": "Agent memory layers",
+              "items": [
+                {
+                  "name": "Mem0",
+                  "logo": "assets/logos/mem0.png"
+                },
+                {
+                  "name": "Letta",
+                  "logo": "assets/logos/letta.png"
+                },
+                {
+                  "name": "Zep",
+                  "logo": "assets/logos/zep.png"
+                }
+              ]
+            },
+            {
+              "name": "Retrieval frameworks",
+              "items": [
+                {
+                  "name": "LlamaIndex",
+                  "logo": "assets/logos/llamaindex.png"
+                },
+                {
+                  "name": "LangChain retrieval",
+                  "logo": "assets/logos/langchain-retrieval.png"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "Model gateways & routers",
+          "page": "pages/model-gateways-routers.html",
+          "items": [
+            {
+              "name": "OpenRouter",
+              "logo": "assets/logos/openrouter.png"
+            },
+            {
+              "name": "Portkey",
+              "logo": "assets/logos/portkey.png"
+            },
+            {
+              "name": "LiteLLM",
+              "logo": "assets/logos/litellm.png"
+            },
+            {
+              "name": "Martian",
+              "logo": "assets/logos/martian.png"
+            }
+          ],
+          "breakdown": [
+            {
+              "name": "Unified API gateways",
+              "items": [
+                {
+                  "name": "OpenRouter",
+                  "logo": "assets/logos/openrouter.png"
+                },
+                {
+                  "name": "Portkey",
+                  "logo": "assets/logos/portkey.png"
+                }
+              ]
+            },
+            {
+              "name": "Open-source routing libraries",
+              "items": [
+                {
+                  "name": "LiteLLM",
+                  "logo": "assets/logos/litellm.png"
+                }
+              ]
+            },
+            {
+              "name": "Cost / performance routers",
+              "items": [
+                {
+                  "name": "Martian",
+                  "logo": "assets/logos/martian.png"
+                },
+                {
+                  "name": "Not Diamond",
+                  "logo": "assets/logos/not-diamond.png"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "Agent sandboxes & code execution infra",
+          "page": "pages/agent-sandboxes-code-execution-infra.html",
+          "items": [
+            {
+              "name": "E2B",
+              "logo": "assets/logos/e2b.png"
+            },
+            {
+              "name": "Modal",
+              "logo": "assets/logos/modal.png"
+            },
+            {
+              "name": "Daytona",
+              "logo": "assets/logos/daytona.png"
+            }
+          ],
+          "breakdown": [
+            {
+              "name": "Code execution sandboxes",
+              "items": [
+                {
+                  "name": "E2B",
+                  "logo": "assets/logos/e2b.png"
+                },
+                {
+                  "name": "Modal",
+                  "logo": "assets/logos/modal.png"
+                }
+              ]
+            },
+            {
+              "name": "Cloud dev environments for agents",
+              "items": [
+                {
+                  "name": "Daytona",
+                  "logo": "assets/logos/daytona.png"
+                },
+                {
+                  "name": "CodeSandbox",
+                  "logo": null
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "Usage metering & billing for agents",
+          "page": "pages/usage-metering-billing-for-agents.html",
+          "items": [
+            {
+              "name": "Orb",
+              "logo": "assets/logos/orb.png"
+            },
+            {
+              "name": "Metronome",
+              "logo": "assets/logos/metronome.png"
+            }
+          ],
+          "breakdown": [
+            {
+              "name": "Usage-based billing infra",
+              "items": [
+                {
+                  "name": "Orb",
+                  "logo": "assets/logos/orb.png"
+                },
+                {
+                  "name": "Metronome",
+                  "logo": "assets/logos/metronome.png"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "key": "protocols",
+      "title": "Protocols & interoperability",
+      "subtitle": "How agents talk to tools, each other and businesses \u2014 see cheqd/agent-toolkit's capability map for the detailed breakdown",
+      "segments": [
+        {
+          "name": "Tool & data access",
+          "page": "pages/tool-data-access.html",
+          "items": [
+            {
+              "name": "MCP (Anthropic)",
+              "logo": "assets/logos/mcp-anthropic.png"
+            },
+            {
+              "name": "OpenAPI tool calling",
+              "logo": null
+            }
+          ],
+          "breakdown": [
+            {
+              "name": "MCP ecosystem",
+              "items": [
+                {
+                  "name": "MCP (Anthropic)",
+                  "logo": "assets/logos/mcp-anthropic.png"
+                },
+                {
+                  "name": "Smithery (MCP registry)",
+                  "logo": "assets/logos/smithery-mcp-registry.png"
+                },
+                {
+                  "name": "Glama (MCP registry)",
+                  "logo": "assets/logos/glama-mcp-registry.png"
+                }
+              ]
+            },
+            {
+              "name": "Tool-calling infra for builders",
+              "items": [
+                {
+                  "name": "OpenAPI tool calling",
+                  "logo": null
+                },
+                {
+                  "name": "Composio",
+                  "logo": "assets/logos/composio.png"
+                },
+                {
+                  "name": "Arcade AI",
+                  "logo": "assets/logos/arcade-ai.png"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "Agent-to-agent & discovery",
+          "page": "pages/agent-to-agent-discovery.html",
+          "items": [
+            {
+              "name": "A2A (Linux Foundation)",
+              "logo": "assets/logos/a2a-linux-foundation.png"
+            },
+            {
+              "name": "AGNTCY (Cisco)",
+              "logo": "assets/logos/agntcy-cisco.png"
+            },
+            {
+              "name": "ANS",
+              "logo": null
+            }
+          ],
+          "breakdown": [
+            {
+              "name": "Agent-to-agent messaging",
+              "items": [
+                {
+                  "name": "A2A (Linux Foundation)",
+                  "logo": "assets/logos/a2a-linux-foundation.png"
+                },
+                {
+                  "name": "AGNTCY (Cisco)",
+                  "logo": "assets/logos/agntcy-cisco.png"
+                }
+              ]
+            },
+            {
+              "name": "Naming & discovery",
+              "items": [
+                {
+                  "name": "ANS",
+                  "logo": null
+                },
+                {
+                  "name": "ERC-8004",
+                  "logo": "assets/logos/erc-8004.png"
+                }
+              ]
+            },
+            {
+              "name": "Agent registries & marketplaces",
+              "items": [
+                {
+                  "name": "Agent.ai",
+                  "logo": null
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "Commerce & payments",
+          "page": "pages/commerce-payments.html",
+          "items": [
+            {
+              "name": "AP2 (Google)",
+              "logo": "assets/logos/ap2-google.png"
+            },
+            {
+              "name": "ACP (OpenAI)",
+              "logo": "assets/logos/acp-openai.png"
+            },
+            {
+              "name": "UCP (Google)",
+              "logo": "assets/logos/ucp-google.png"
+            },
+            {
+              "name": "x402",
+              "logo": "assets/logos/x402.png"
+            },
+            {
+              "name": "TAP (Visa)",
+              "logo": "assets/logos/tap-visa.png"
+            },
+            {
+              "name": "MPP (Stripe/Tempo)",
+              "logo": "assets/logos/mpp-stripe-tempo.png"
+            }
+          ],
+          "breakdown": [
+            {
+              "name": "Mandate & intent protocols",
+              "items": [
+                {
+                  "name": "AP2 (Google)",
+                  "logo": "assets/logos/ap2-google.png"
+                },
+                {
+                  "name": "Verifiable Intent (Mastercard)",
+                  "logo": "assets/logos/verifiable-intent-mastercard.png"
+                }
+              ]
+            },
+            {
+              "name": "Checkout protocols",
+              "items": [
+                {
+                  "name": "ACP (OpenAI)",
+                  "logo": "assets/logos/acp-openai.png"
+                },
+                {
+                  "name": "UCP (Google)",
+                  "logo": "assets/logos/ucp-google.png"
+                },
+                {
+                  "name": "TAP (Visa)",
+                  "logo": "assets/logos/tap-visa.png"
+                }
+              ]
+            },
+            {
+              "name": "HTTP-native & stablecoin payments",
+              "items": [
+                {
+                  "name": "x402",
+                  "logo": "assets/logos/x402.png"
+                },
+                {
+                  "name": "MPP (Stripe/Tempo)",
+                  "logo": "assets/logos/mpp-stripe-tempo.png"
+                },
+                {
+                  "name": "L402",
+                  "logo": null
+                }
+              ]
+            },
+            {
+              "name": "Payment credential infra",
+              "items": [
+                {
+                  "name": "Stripe Shared Payment Tokens",
+                  "logo": "assets/logos/stripe-shared-payment-tokens.png"
+                },
+                {
+                  "name": "Skyfire",
+                  "logo": null
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "key": "trust",
+      "title": "Identity, governance & security",
+      "subtitle": "Who an agent is, what it may do, and what stops it going wrong",
+      "segments": [
+        {
+          "name": "Agent identity & delegation",
+          "page": "pages/agent-identity-delegation.html",
+          "items": [
+            {
+              "name": "KYA-OS (DIF)",
+              "logo": "assets/logos/kya-os-dif.png"
+            },
+            {
+              "name": "ERC-8004",
+              "logo": "assets/logos/erc-8004.png"
+            },
+            {
+              "name": "Baselayer",
+              "logo": "assets/logos/baselayer.png"
+            },
+            {
+              "name": "Skyfire",
+              "logo": null
+            }
+          ],
+          "breakdown": [
+            {
+              "name": "Identity & KYA standards",
+              "items": [
+                {
+                  "name": "KYA-OS (DIF)",
+                  "logo": "assets/logos/kya-os-dif.png"
+                },
+                {
+                  "name": "Baselayer",
+                  "logo": "assets/logos/baselayer.png"
+                },
+                {
+                  "name": "Skyfire",
+                  "logo": null
+                }
+              ]
+            },
+            {
+              "name": "On-chain agent identity",
+              "items": [
+                {
+                  "name": "ERC-8004",
+                  "logo": "assets/logos/erc-8004.png"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "Guardrails & red-teaming",
+          "page": "pages/guardrails-red-teaming.html",
+          "items": [
+            {
+              "name": "Lakera",
+              "logo": "assets/logos/lakera.png"
+            },
+            {
+              "name": "CalypsoAI",
+              "logo": null
+            },
+            {
+              "name": "HiddenLayer",
+              "logo": "assets/logos/hiddenlayer.png"
+            },
+            {
+              "name": "Robust Intelligence (Cisco)",
+              "logo": "assets/logos/robust-intelligence-cisco.png"
+            },
+            {
+              "name": "Prompt Security",
+              "logo": "assets/logos/prompt-security.png"
+            }
+          ],
+          "breakdown": [
+            {
+              "name": "Runtime guardrails",
+              "items": [
+                {
+                  "name": "Lakera",
+                  "logo": "assets/logos/lakera.png"
+                },
+                {
+                  "name": "CalypsoAI",
+                  "logo": null
+                },
+                {
+                  "name": "Prompt Security",
+                  "logo": "assets/logos/prompt-security.png"
+                }
+              ]
+            },
+            {
+              "name": "Model & red-team testing",
+              "items": [
+                {
+                  "name": "HiddenLayer",
+                  "logo": "assets/logos/hiddenlayer.png"
+                },
+                {
+                  "name": "Robust Intelligence (Cisco)",
+                  "logo": "assets/logos/robust-intelligence-cisco.png"
+                },
+                {
+                  "name": "Mindgard",
+                  "logo": "assets/logos/mindgard.png"
+                }
+              ]
+            },
+            {
+              "name": "Open-source guardrail frameworks",
+              "items": [
+                {
+                  "name": "NeMo Guardrails (Nvidia)",
+                  "logo": "assets/logos/nemo-guardrails-nvidia.png"
+                },
+                {
+                  "name": "Guardrails AI",
+                  "logo": "assets/logos/guardrails-ai.png"
+                },
+                {
+                  "name": "LLM Guard",
+                  "logo": "assets/logos/llm-guard.png"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "AI governance & risk",
+          "page": "pages/ai-governance-risk.html",
+          "items": [
+            {
+              "name": "Credo AI",
+              "logo": "assets/logos/credo-ai.png"
+            },
+            {
+              "name": "Holistic AI",
+              "logo": "assets/logos/holistic-ai.png"
+            },
+            {
+              "name": "OneTrust AI Governance",
+              "logo": "assets/logos/onetrust-ai-governance.png"
+            },
+            {
+              "name": "IBM watsonx.governance",
+              "logo": "assets/logos/ibm-watsonx-governance.png"
+            }
+          ],
+          "breakdown": [
+            {
+              "name": "AI governance platforms",
+              "items": [
+                {
+                  "name": "Credo AI",
+                  "logo": "assets/logos/credo-ai.png"
+                },
+                {
+                  "name": "Holistic AI",
+                  "logo": "assets/logos/holistic-ai.png"
+                },
+                {
+                  "name": "OneTrust AI Governance",
+                  "logo": "assets/logos/onetrust-ai-governance.png"
+                }
+              ]
+            },
+            {
+              "name": "Model risk management",
+              "items": [
+                {
+                  "name": "IBM watsonx.governance",
+                  "logo": "assets/logos/ibm-watsonx-governance.png"
+                },
+                {
+                  "name": "ValidMind",
+                  "logo": "assets/logos/validmind.png"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "Identity & access infra reused for agents",
+          "page": "pages/identity-access-infra-reused-for-agents.html",
+          "items": [
+            {
+              "name": "Okta (Cross App Access)",
+              "logo": "assets/logos/okta-cross-app-access.png"
+            },
+            {
+              "name": "Auth0",
+              "logo": "assets/logos/auth0.png"
+            },
+            {
+              "name": "WorkOS",
+              "logo": "assets/logos/workos.png"
+            }
+          ],
+          "breakdown": [
+            {
+              "name": "Enterprise IAM extending to agents",
+              "items": [
+                {
+                  "name": "Okta (Cross App Access)",
+                  "logo": "assets/logos/okta-cross-app-access.png"
+                },
+                {
+                  "name": "Auth0",
+                  "logo": "assets/logos/auth0.png"
+                },
+                {
+                  "name": "Microsoft Entra Agent ID",
+                  "logo": "assets/logos/microsoft-entra-agent-id.png"
+                }
+              ]
+            },
+            {
+              "name": "Developer-first auth",
+              "items": [
+                {
+                  "name": "WorkOS",
+                  "logo": "assets/logos/workos.png"
+                },
+                {
+                  "name": "Clerk",
+                  "logo": "assets/logos/clerk.png"
+                },
+                {
+                  "name": "Ory",
+                  "logo": "assets/logos/ory.png"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "Liability & insurance",
+          "page": "pages/liability-insurance.html",
+          "items": [
+            {
+              "name": "Armilla AI",
+              "logo": "assets/logos/armilla-ai.png"
+            },
+            {
+              "name": "Munich Re (aiSure)",
+              "logo": "assets/logos/munich-re-aisure.png"
+            },
+            {
+              "name": "Chubb",
+              "logo": "assets/logos/chubb.png"
+            }
+          ],
+          "breakdown": [
+            {
+              "name": "AI performance warranty & cover",
+              "items": [
+                {
+                  "name": "Armilla AI",
+                  "logo": "assets/logos/armilla-ai.png"
+                },
+                {
+                  "name": "Munich Re (aiSure)",
+                  "logo": "assets/logos/munich-re-aisure.png"
+                }
+              ]
+            },
+            {
+              "name": "Insurers underwriting AI risk",
+              "items": [
+                {
+                  "name": "Chubb",
+                  "logo": "assets/logos/chubb.png"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "key": "foundation",
+      "title": "Foundation models & infrastructure",
+      "subtitle": "What everything above is built on",
+      "segments": [
+        {
+          "name": "Frontier labs",
+          "page": "pages/frontier-labs.html",
+          "items": [
+            {
+              "name": "Anthropic",
+              "logo": "assets/logos/anthropic.png"
+            },
+            {
+              "name": "OpenAI",
+              "logo": "assets/logos/openai.png"
+            },
+            {
+              "name": "Google DeepMind",
+              "logo": "assets/logos/google-deepmind.png"
+            },
+            {
+              "name": "Meta",
+              "logo": "assets/logos/meta.png"
+            },
+            {
+              "name": "xAI",
+              "logo": "assets/logos/xai.png"
+            },
+            {
+              "name": "Mistral",
+              "logo": "assets/logos/mistral.png"
+            }
+          ],
+          "breakdown": [
+            {
+              "name": "US labs",
+              "items": [
+                {
+                  "name": "Anthropic",
+                  "logo": "assets/logos/anthropic.png"
+                },
+                {
+                  "name": "OpenAI",
+                  "logo": "assets/logos/openai.png"
+                },
+                {
+                  "name": "xAI",
+                  "logo": "assets/logos/xai.png"
+                }
+              ]
+            },
+            {
+              "name": "Big tech labs",
+              "items": [
+                {
+                  "name": "Google DeepMind",
+                  "logo": "assets/logos/google-deepmind.png"
+                },
+                {
+                  "name": "Meta",
+                  "logo": "assets/logos/meta.png"
+                }
+              ]
+            },
+            {
+              "name": "European labs",
+              "items": [
+                {
+                  "name": "Mistral",
+                  "logo": "assets/logos/mistral.png"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "Open-weight models",
+          "page": "pages/open-weight-models.html",
+          "items": [
+            {
+              "name": "Llama (Meta)",
+              "logo": "assets/logos/llama-meta.png"
+            },
+            {
+              "name": "Qwen (Alibaba)",
+              "logo": "assets/logos/qwen-alibaba.png"
+            },
+            {
+              "name": "DeepSeek",
+              "logo": "assets/logos/deepseek.png"
+            },
+            {
+              "name": "Mistral",
+              "logo": "assets/logos/mistral.png"
+            }
+          ],
+          "breakdown": [
+            {
+              "name": "US open-weight",
+              "items": [
+                {
+                  "name": "Llama (Meta)",
+                  "logo": "assets/logos/llama-meta.png"
+                },
+                {
+                  "name": "OLMo (AI2)",
+                  "logo": "assets/logos/olmo-ai2.png"
+                }
+              ]
+            },
+            {
+              "name": "Chinese open-weight",
+              "items": [
+                {
+                  "name": "Qwen (Alibaba)",
+                  "logo": "assets/logos/qwen-alibaba.png"
+                },
+                {
+                  "name": "DeepSeek",
+                  "logo": "assets/logos/deepseek.png"
+                },
+                {
+                  "name": "Kimi (Moonshot)",
+                  "logo": "assets/logos/kimi-moonshot.png"
+                }
+              ]
+            },
+            {
+              "name": "European open-weight",
+              "items": [
+                {
+                  "name": "Mistral",
+                  "logo": "assets/logos/mistral.png"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "Model hosting & inference",
+          "page": "pages/model-hosting-inference.html",
+          "items": [
+            {
+              "name": "Together AI",
+              "logo": "assets/logos/together-ai.png"
+            },
+            {
+              "name": "Fireworks AI",
+              "logo": "assets/logos/fireworks-ai.png"
+            },
+            {
+              "name": "Groq",
+              "logo": "assets/logos/groq.png"
+            },
+            {
+              "name": "Amazon Bedrock",
+              "logo": "assets/logos/amazon-bedrock.png"
+            },
+            {
+              "name": "Azure AI Foundry",
+              "logo": "assets/logos/azure-ai-foundry.png"
+            },
+            {
+              "name": "Vertex AI",
+              "logo": "assets/logos/vertex-ai.png"
+            }
+          ],
+          "breakdown": [
+            {
+              "name": "Hyperscaler-native",
+              "items": [
+                {
+                  "name": "Amazon Bedrock",
+                  "logo": "assets/logos/amazon-bedrock.png"
+                },
+                {
+                  "name": "Azure AI Foundry",
+                  "logo": "assets/logos/azure-ai-foundry.png"
+                },
+                {
+                  "name": "Vertex AI",
+                  "logo": "assets/logos/vertex-ai.png"
+                }
+              ]
+            },
+            {
+              "name": "Inference specialists",
+              "items": [
+                {
+                  "name": "Together AI",
+                  "logo": "assets/logos/together-ai.png"
+                },
+                {
+                  "name": "Fireworks AI",
+                  "logo": "assets/logos/fireworks-ai.png"
+                },
+                {
+                  "name": "Groq",
+                  "logo": "assets/logos/groq.png"
+                },
+                {
+                  "name": "Cerebras",
+                  "logo": "assets/logos/cerebras.png"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "Compute & training infra",
+          "page": "pages/compute-training-infra.html",
+          "items": [
+            {
+              "name": "Nvidia",
+              "logo": "assets/logos/nvidia.png"
+            },
+            {
+              "name": "AWS",
+              "logo": "assets/logos/aws.png"
+            },
+            {
+              "name": "Microsoft Azure",
+              "logo": "assets/logos/microsoft-azure.png"
+            },
+            {
+              "name": "Google Cloud",
+              "logo": "assets/logos/google-cloud.png"
+            },
+            {
+              "name": "CoreWeave",
+              "logo": "assets/logos/coreweave.png"
+            }
+          ],
+          "breakdown": [
+            {
+              "name": "Chips",
+              "items": [
+                {
+                  "name": "Nvidia",
+                  "logo": "assets/logos/nvidia.png"
+                },
+                {
+                  "name": "AMD",
+                  "logo": "assets/logos/amd.png"
+                },
+                {
+                  "name": "Google TPU",
+                  "logo": "assets/logos/google-tpu.png"
+                }
+              ]
+            },
+            {
+              "name": "Cloud / GPU infra",
+              "items": [
+                {
+                  "name": "AWS",
+                  "logo": "assets/logos/aws.png"
+                },
+                {
+                  "name": "Microsoft Azure",
+                  "logo": "assets/logos/microsoft-azure.png"
+                },
+                {
+                  "name": "Google Cloud",
+                  "logo": "assets/logos/google-cloud.png"
+                },
+                {
+                  "name": "CoreWeave",
+                  "logo": "assets/logos/coreweave.png"
+                },
+                {
+                  "name": "Lambda",
+                  "logo": "assets/logos/lambda.png"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "Data, labeling & RLHF",
+          "page": "pages/data-labeling-rlhf.html",
+          "items": [
+            {
+              "name": "Scale AI",
+              "logo": "assets/logos/scale-ai.png"
+            },
+            {
+              "name": "Surge AI",
+              "logo": "assets/logos/surge-ai.png"
+            },
+            {
+              "name": "Labelbox",
+              "logo": "assets/logos/labelbox.png"
+            },
+            {
+              "name": "Invisible Technologies",
+              "logo": "assets/logos/invisible-technologies.png"
+            }
+          ],
+          "breakdown": [
+            {
+              "name": "Data labeling & annotation",
+              "items": [
+                {
+                  "name": "Scale AI",
+                  "logo": "assets/logos/scale-ai.png"
+                },
+                {
+                  "name": "Labelbox",
+                  "logo": "assets/logos/labelbox.png"
+                }
+              ]
+            },
+            {
+              "name": "RLHF & expert data",
+              "items": [
+                {
+                  "name": "Surge AI",
+                  "logo": "assets/logos/surge-ai.png"
+                },
+                {
+                  "name": "Invisible Technologies",
+                  "logo": "assets/logos/invisible-technologies.png"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "Voice & multimodal model infra",
+          "page": "pages/voice-multimodal-model-infra.html",
+          "items": [
+            {
+              "name": "ElevenLabs",
+              "logo": "assets/logos/elevenlabs.png"
+            },
+            {
+              "name": "Deepgram",
+              "logo": "assets/logos/deepgram.png"
+            },
+            {
+              "name": "Cartesia",
+              "logo": "assets/logos/cartesia.png"
+            },
+            {
+              "name": "AssemblyAI",
+              "logo": "assets/logos/assemblyai.png"
+            }
+          ],
+          "breakdown": [
+            {
+              "name": "Text-to-speech",
+              "items": [
+                {
+                  "name": "ElevenLabs",
+                  "logo": "assets/logos/elevenlabs.png"
+                },
+                {
+                  "name": "Cartesia",
+                  "logo": "assets/logos/cartesia.png"
+                }
+              ]
+            },
+            {
+              "name": "Speech-to-text",
+              "items": [
+                {
+                  "name": "Deepgram",
+                  "logo": "assets/logos/deepgram.png"
+                },
+                {
+                  "name": "AssemblyAI",
+                  "logo": "assets/logos/assemblyai.png"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

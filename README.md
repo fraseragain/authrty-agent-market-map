@@ -27,6 +27,18 @@ lives in [`cheqd/agent-toolkit`](https://github.com/cheqd/agent-toolkit)'s
 This repo is the wide, shallow view; that one is the narrow, deep view of a
 single layer.
 
+## Reading this as an agent
+
+`market-map.json` is the whole map as plain data — every layer, segment,
+example player and drill-down breakdown, with a `schema_notes` field
+explaining its own shape so an agent doesn't need this README to parse it.
+`index.html` and every `pages/*.html` file link to it via
+`<link rel="alternate" type="application/json" href="...">` in `<head>`, and
+`llms.txt` at the repo root points to both for anything that checks there
+first. It's written by the same `generate.py` run that writes the HTML, so it
+never drifts from what the pages show — edit `LAYERS`, rerun, both update
+together.
+
 ## Branding
 
 Authrty isn't a market-map entry — it's credited as the map's author in a
@@ -64,7 +76,7 @@ on the overview page — add one any time by passing `breakdown=[sub(...), ...]`
 to `seg(...)`. Edit `LAYERS`, then regenerate:
 
 ```bash
-python3 generate.py .        # writes ./index.html and ./pages/<segment>.html
+python3 generate.py .        # writes ./index.html, ./market-map.json, ./llms.txt, ./pages/<segment>.html
 ```
 
 Open `index.html` in a browser — the drill-down links are relative, so it

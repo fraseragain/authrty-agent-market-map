@@ -19,6 +19,7 @@ its own harness and consumer agent).
 
 See README.md for scope, sourcing and rendering to PNG.
 """
+import json
 import os
 import re
 import sys
@@ -386,7 +387,12 @@ def brand_html(depth):
 
 
 def render_index():
-    out = [f"<!doctype html><html><head><meta charset='utf-8'><title>{html.escape(TITLE)}</title><style>{CSS}</style></head><body>"]
+    out = [
+        f"<!doctype html><html><head><meta charset='utf-8'><title>{html.escape(TITLE)}</title>"
+        "<link rel='alternate' type='application/json' href='market-map.json' "
+        "title='Structured data for this map, for agents and scripts'>"
+        f"<style>{CSS}</style></head><body>"
+    ]
     out.append(f"<div class='topbar'><h1>{html.escape(TITLE)}</h1>{brand_html(0)}</div>")
     out.append(
         "<p class='meta'>A sketch of the AI agent market by layer, not a census: each segment lists a handful of "
@@ -424,7 +430,12 @@ def render_index():
 def render_breakdown(l, s):
     page_title = f"{s['name']} — {TITLE}"
     colour = COLOUR[l["key"]]
-    out = [f"<!doctype html><html><head><meta charset='utf-8'><title>{html.escape(page_title)}</title><style>{CSS}</style></head><body>"]
+    out = [
+        f"<!doctype html><html><head><meta charset='utf-8'><title>{html.escape(page_title)}</title>"
+        "<link rel='alternate' type='application/json' href='../market-map.json' "
+        "title='Structured data for the whole map, for agents and scripts'>"
+        f"<style>{CSS}</style></head><body>"
+    ]
     out.append(f"<p class='crumb'><a href='../index.html'>&larr; {html.escape(TITLE)}</a> / {html.escape(l['title'])}</p>")
     out.append(f"<div class='topbar'><h1>{html.escape(s['name'])}</h1>{brand_html(1)}</div>")
     out.append(
@@ -447,6 +458,76 @@ def render_breakdown(l, s):
     return "\n".join(out)
 
 
+def item_obj(it, depth):
+    return {"name": it, "logo": logo_path(it, depth)}
+
+
+def build_data():
+    """The whole map as plain data: what generate.py renders to HTML, and what
+    market-map.json hands to anything that wants to read the map without
+    scraping it — an agent, a script, a future version of this site."""
+    layers_out = []
+    for l in LAYERS:
+        segments_out = []
+        for s in l["segments"]:
+            page = f"pages/{slug(s['name'])}.html" if s["breakdown"] else None
+            breakdown_out = (
+                [{"name": ss["name"], "items": [item_obj(it, 0) for it in ss["items"]]} for ss in s["breakdown"]]
+                if s["breakdown"] else None
+            )
+            segments_out.append({
+                "name": s["name"],
+                "page": page,
+                "items": [item_obj(it, 0) for it in s["items"]],
+                "breakdown": breakdown_out,
+            })
+        layers_out.append({
+            "key": l["key"], "title": l["title"], "subtitle": l["subtitle"], "segments": segments_out,
+        })
+    return {
+        "title": TITLE,
+        "description": (
+            "A sketch of the AI agent market by layer, top (what people buy and use) to bottom "
+            "(the compute underneath it). Each segment lists a handful of illustrative players, not "
+            "every company in it -- this is a navigation aid, not a competitor database or a ranking. "
+            "A company often appears in, or belongs in, more than one box."
+        ),
+        "schema_notes": (
+            "layers[].segments[].items are the top-level examples shown on index.html. "
+            "layers[].segments[].breakdown, where present, is the same segment split into its own "
+            "named sub-categories (its drill-down page, linked by `page`); breakdown[].items follow "
+            "the same {name, logo} shape as the top-level items. `logo` is a relative path from this "
+            "file's own directory to a PNG, or null if no logo was found."
+        ),
+        "source": "https://github.com/cheqd/agent-toolkit (protocol-layer detail) + this repo (everything else)",
+        "layers": layers_out,
+    }
+
+
+LLMS_TXT = """# AI agent market map
+
+> A sketch of the AI agent market by layer, top (what people buy and use) \
+down to the compute underneath it: applications, agent platforms and \
+harnesses, protocols, identity/governance/security, and foundation models \
+and infrastructure. Illustrative, not exhaustive -- a navigation aid, not a \
+competitor database or a ranking.
+
+Read [market-map.json](market-map.json) for the whole map as structured \
+data: every layer, segment and example player, plus each segment's \
+drill-down breakdown where one exists. That file is the source of truth for \
+agents; the HTML pages are a rendering of the same data for people.
+
+- [index.html](index.html) -- the overview page (human-readable rendering of market-map.json)
+- [market-map.json](market-map.json) -- the same content as structured data
+- [README.md](README.md) -- how this map is built, scope and limits, how to edit it
+- `pages/<segment>.html` -- one drill-down page per segment that has a breakdown
+
+Protocol-level detail (A2A, AP2, MCP, x402 and the rest) is out of scope \
+here by design and tracked instead at \
+https://github.com/cheqd/agent-toolkit/tree/main/docs/research/tools/capability-map.
+"""
+
+
 if __name__ == "__main__":
     os.makedirs(PAGES_DIR, exist_ok=True)
     with open(os.path.join(OUT_DIR, "index.html"), "w") as f:
@@ -461,10 +542,17 @@ if __name__ == "__main__":
                 f.write(render_breakdown(l, s))
             pages += 1
 
+    with open(os.path.join(OUT_DIR, "market-map.json"), "w") as f:
+        json.dump(build_data(), f, indent=2)
+        f.write("\n")
+
+    with open(os.path.join(OUT_DIR, "llms.txt"), "w") as f:
+        f.write(LLMS_TXT)
+
     total = sum(len(s["items"]) for l in LAYERS for s in l["segments"])
     sub_total = sum(len(ss["items"]) for l in LAYERS for s in l["segments"] for ss in (s["breakdown"] or []))
     print(
-        f"Wrote {OUT_DIR}/index.html and {pages} breakdown pages under {PAGES_DIR}/: "
-        f"{len(LAYERS)} layers, {sum(len(l['segments']) for l in LAYERS)} segments, {total} top-level players, "
-        f"{sub_total} sub-market players."
+        f"Wrote {OUT_DIR}/index.html, {OUT_DIR}/market-map.json, {OUT_DIR}/llms.txt and {pages} breakdown "
+        f"pages under {PAGES_DIR}/: {len(LAYERS)} layers, {sum(len(l['segments']) for l in LAYERS)} segments, "
+        f"{total} top-level players, {sub_total} sub-market players."
     )
