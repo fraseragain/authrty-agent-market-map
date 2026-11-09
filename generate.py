@@ -113,6 +113,26 @@ LAYERS = [
                 sub("Analyst / BI copilots", ["Rogo", "AlphaSense"]),
                 sub("Legal research", ["Harvey (legal)", "CoCounsel (Thomson Reuters)", "Robin AI"]),
             ]),
+            seg("Marketing & content agents", [
+                "Jasper", "Copy.ai", "Writer", "Surfer SEO",
+            ], breakdown=[
+                sub("Content generation", ["Jasper", "Copy.ai", "Writer"]),
+                sub("SEO & content ops", ["Surfer SEO", "Clearscope"]),
+                sub("Social & ad creative agents", ["AdCreative.ai", "Omneky"]),
+            ]),
+            seg("Education & tutoring agents", [
+                "Khanmigo", "Speak", "Duolingo Max",
+            ], breakdown=[
+                sub("Tutoring assistants", ["Khanmigo"]),
+                sub("Language learning agents", ["Speak", "Duolingo Max"]),
+                sub("Corporate learning agents", ["Sana Labs"]),
+            ]),
+            seg("Embodied / physical-world agents", [
+                "Figure", "Physical Intelligence", "Skild AI",
+            ], breakdown=[
+                sub("Humanoid robots", ["Figure", "1X Technologies", "Apptronik"]),
+                sub("Robot foundation models", ["Physical Intelligence", "Skild AI"]),
+            ]),
             seg("Other verticals", [
                 "Abridge (health)", "Rogo (finance)", "EvenUp (legal)",
                 "Sierra (travel/CX)", "Cradle (hardware eng.)",
@@ -168,6 +188,24 @@ LAYERS = [
                 sub("Vector databases", ["Pinecone", "Weaviate", "Qdrant", "Chroma"]),
                 sub("Agent memory layers", ["Mem0", "Letta", "Zep"]),
                 sub("Retrieval frameworks", ["LlamaIndex", "LangChain retrieval"]),
+            ]),
+            seg("Model gateways & routers", [
+                "OpenRouter", "Portkey", "LiteLLM", "Martian",
+            ], breakdown=[
+                sub("Unified API gateways", ["OpenRouter", "Portkey"]),
+                sub("Open-source routing libraries", ["LiteLLM"]),
+                sub("Cost / performance routers", ["Martian", "Not Diamond"]),
+            ]),
+            seg("Agent sandboxes & code execution infra", [
+                "E2B", "Modal", "Daytona",
+            ], breakdown=[
+                sub("Code execution sandboxes", ["E2B", "Modal"]),
+                sub("Cloud dev environments for agents", ["Daytona", "CodeSandbox"]),
+            ]),
+            seg("Usage metering & billing for agents", [
+                "Orb", "Metronome",
+            ], breakdown=[
+                sub("Usage-based billing infra", ["Orb", "Metronome"]),
             ]),
         ],
     ),
@@ -232,6 +270,12 @@ LAYERS = [
                 sub("Enterprise IAM extending to agents", ["Okta (Cross App Access)", "Auth0", "Microsoft Entra Agent ID"]),
                 sub("Developer-first auth", ["WorkOS", "Clerk", "Ory"]),
             ]),
+            seg("Liability & insurance", [
+                "Armilla AI", "Munich Re (aiSure)", "Chubb",
+            ], breakdown=[
+                sub("AI performance warranty & cover", ["Armilla AI", "Munich Re (aiSure)"]),
+                sub("Insurers underwriting AI risk", ["Chubb"]),
+            ]),
         ],
     ),
     layer(
@@ -265,6 +309,18 @@ LAYERS = [
             ], breakdown=[
                 sub("Chips", ["Nvidia", "AMD", "Google TPU"]),
                 sub("Cloud / GPU infra", ["AWS", "Microsoft Azure", "Google Cloud", "CoreWeave", "Lambda"]),
+            ]),
+            seg("Data, labeling & RLHF", [
+                "Scale AI", "Surge AI", "Labelbox", "Invisible Technologies",
+            ], breakdown=[
+                sub("Data labeling & annotation", ["Scale AI", "Labelbox"]),
+                sub("RLHF & expert data", ["Surge AI", "Invisible Technologies"]),
+            ]),
+            seg("Voice & multimodal model infra", [
+                "ElevenLabs", "Deepgram", "Cartesia", "AssemblyAI",
+            ], breakdown=[
+                sub("Text-to-speech", ["ElevenLabs", "Cartesia"]),
+                sub("Speech-to-text", ["Deepgram", "AssemblyAI"]),
             ]),
         ],
     ),
