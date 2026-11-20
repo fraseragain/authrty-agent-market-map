@@ -1546,6 +1546,10 @@
               "logo": "assets/logos/kya-os-dif.png"
             },
             {
+              "name": "PAP / Poppy (Sierra)",
+              "logo": "assets/logos/pap-poppy-sierra.png"
+            },
+            {
               "name": "ERC-8004",
               "logo": "assets/logos/erc-8004.png"
             },
@@ -1573,6 +1577,15 @@
                 {
                   "name": "Skyfire",
                   "logo": null
+                }
+              ]
+            },
+            {
+              "name": "Personal-agent-to-business protocols",
+              "items": [
+                {
+                  "name": "PAP / Poppy (Sierra)",
+                  "logo": "assets/logos/pap-poppy-sierra.png"
                 }
               ]
             },

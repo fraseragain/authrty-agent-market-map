@@ -110,6 +110,7 @@ DOMAINS = {
     "MPP (Stripe/Tempo)": "stripe.com",
     "Authrty": None,  # local file, see assets/logos/authrty.png
     "KYA-OS (DIF)": "identity.foundation",
+    "PAP / Poppy (Sierra)": "personalagentprotocol.org",
     "ERC-8004": "ethereum.org",
     "Baselayer": "baselayer.com",
     "Skyfire": "skyfire.xyz",
