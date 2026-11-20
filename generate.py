@@ -245,9 +245,10 @@ LAYERS = [
         "Who an agent is, what it may do, and what stops it going wrong",
         [
             seg("Agent identity & delegation", [
-                "KYA-OS (DIF)", "ERC-8004", "Baselayer", "Skyfire",
+                "KYA-OS (DIF)", "PAP / Poppy (Sierra)", "ERC-8004", "Baselayer", "Skyfire",
             ], breakdown=[
                 sub("Identity & KYA standards", ["KYA-OS (DIF)", "Baselayer", "Skyfire"]),
+                sub("Personal-agent-to-business protocols", ["PAP / Poppy (Sierra)"]),
                 sub("On-chain agent identity", ["ERC-8004"]),
             ]),
             seg("Guardrails & red-teaming", [
@@ -447,7 +448,7 @@ def render_index():
     out.append(
         "<footer>Sketch, not exhaustive. Protocol detail (A2A, AP2, MCP and the rest) is tracked at "
         "cheqd/agent-toolkit's capability map; this map's protocols row is a summary pointer to it, not a "
-        "replacement. Last assembled 2026-11-09. Built by "
+        "replacement. Last assembled 2026-11-20. Built by "
         "<a href='https://authrty.ai' target='_blank' rel='noopener'>Authrty</a>.</footer>"
     )
     out.append("</body></html>")

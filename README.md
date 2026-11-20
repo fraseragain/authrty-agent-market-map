@@ -20,7 +20,7 @@ This is a sketch, not a census. Each segment lists a handful of illustrative
 players, not every company in it, and a company often spans more than one
 box (a frontier lab shipping its own harness and consumer agent, a payments
 protocol vendor also doing identity). Inclusion is a judgement call made
-2026-11-09, not a ranking.
+2026-11-09 (updated 2026-11-20 to add PAP/Poppy, v1.0 since 14 Nov), not a ranking.
 
 It deliberately stays shallow on protocols — that detail (A2A, AP2, MCP, x402
 and the rest, with adoption evidence and capability-level ratings) already
