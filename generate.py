@@ -336,6 +336,25 @@ TITLE = _arg("--title") or "AI agent market map"
 OUT_DIR = sys.argv[1] if len(sys.argv) > 1 and not sys.argv[1].startswith("--") else "."
 PAGES_DIR = os.path.join(OUT_DIR, "pages")
 
+GTM_ID = "GTM-NX5ST6C7"
+
+
+def gtm_head():
+    return (
+        "<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':"
+        "new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],"
+        "j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src="
+        "'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);"
+        f"}})(window,document,'script','dataLayer','{GTM_ID}');</script>"
+    )
+
+
+def gtm_body():
+    return (
+        f"<noscript><iframe src='https://www.googletagmanager.com/ns.html?id={GTM_ID}' "
+        "height='0' width='0' style='display:none;visibility:hidden'></iframe></noscript>"
+    )
+
 CSS = """
 :root{
   --ink:#1b1f24; --sub:#5f6b7a; --bg:#ffffff; --panel:#f7f8fa; --border:#d8dde3; --link:#2f7fd1;
@@ -394,10 +413,11 @@ def brand_html(depth):
 
 def render_index():
     out = [
-        f"<!doctype html><html><head><meta charset='utf-8'><title>{html.escape(TITLE)}</title>"
+        f"<!doctype html><html><head><meta charset='utf-8'>{gtm_head()}"
+        f"<title>{html.escape(TITLE)}</title>"
         "<link rel='alternate' type='application/json' href='market-map.json' "
         "title='Structured data for this map, for agents and scripts'>"
-        f"<style>{CSS}</style></head><body>"
+        f"<style>{CSS}</style></head><body>{gtm_body()}"
     ]
     out.append(f"<div class='topbar'><h1>{html.escape(TITLE)}</h1>{brand_html(0)}</div>")
     out.append(
@@ -438,10 +458,11 @@ def render_breakdown(l, s):
     page_title = f"{s['name']} — {TITLE}"
     colour = COLOUR[l["key"]]
     out = [
-        f"<!doctype html><html><head><meta charset='utf-8'><title>{html.escape(page_title)}</title>"
+        f"<!doctype html><html><head><meta charset='utf-8'>{gtm_head()}"
+        f"<title>{html.escape(page_title)}</title>"
         "<link rel='alternate' type='application/json' href='../market-map.json' "
         "title='Structured data for the whole map, for agents and scripts'>"
-        f"<style>{CSS}</style></head><body>"
+        f"<style>{CSS}</style></head><body>{gtm_body()}"
     ]
     out.append(f"<p class='crumb'><a href='../index.html'>&larr; {html.escape(TITLE)}</a> / {html.escape(l['title'])}</p>")
     out.append(f"<div class='topbar'><h1>{html.escape(s['name'])}</h1>{brand_html(1)}</div>")
